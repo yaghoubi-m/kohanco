@@ -1,0 +1,137 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > img{
+    width: 100%;
+    height: auto;
+}
+
+.whyus{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10rem 0;
+    width: 85%;
+}
+
+.whyus div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.whyus div:nth-child(1) p:first-child{
+    color: #4e4e4e;
+    font-size: 2rem;
+}
+
+.whyus div:nth-child(1) p:last-child{
+    font-size: 2.5rem;
+    width: 60%;
+}
+
+.whyus div:nth-child(2){
+    color: #4e4e4e;
+    width: 65%;
+    text-align: justify;
+
+}
+
+.above {
+    display: flex;
+    background-color: black;
+    color: #4e4e4e;
+    text-align: justify;
+    margin-bottom: 10rem;
+}
+
+.above div:first-child{
+    width: 50%;
+    padding: 7rem;
+}
+
+.above > div p:first-child{
+    font-size: 2.5rem;
+    color: #FFF;
+    margin-bottom: 2rem;
+} 
+
+.above img{
+    width: 50%;
+    height: auto;
+}
+
+.whyus:last-child{
+    color: #4e4e4e;
+    text-align: justify;
+    align-items: start;
+}
+
+.whyus:last-child p:first-child{
+    width: 20%;
+    text-align: start;
+    color: #000;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+}
+
+.whyus:last-child p:last-child{
+    width: 65%;
+}
+
+@media screen and (max-width: 768px) {
+    .container > img{
+        /* height: 350px; */
+    }
+
+    .whyus{
+        flex-direction: column;
+        gap: 2rem;
+        width: 95%;
+    }
+    .whyus:last-child{
+        margin: 0;
+        margin-bottom: 3rem;
+    }
+    .whyus:last-child p:first-child {
+        width: 100%;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 0;
+    }
+    .whyus:last-child br{
+        display: none;
+    }
+    .whyus:last-child p:last-child {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    .whyus div:first-child{
+        width: 80%;
+    }
+    .whyus div:first-child p:last-child{
+        font-size: 1.7rem;
+        width: 100%;
+    }
+    .whyus div:last-child{
+        width: 100%;
+    }
+    .above{
+        flex-direction: column-reverse;
+    }
+    .above img{
+        width: 100%;
+    }
+    .above >div p:first-child{
+        font-size: 2rem;
+    }
+    .above div:first-child{
+        padding: 3rem;
+        width: 100%;
+    }
+
+}

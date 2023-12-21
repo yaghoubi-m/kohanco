@@ -1,0 +1,163 @@
+.bg{
+    background-image: url("/images/Gradient.png");
+    background-repeat: no-repeat    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+}
+
+.title_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+.title{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.title svg{
+    width: 50%;
+    height: 50%;
+}
+
+.title p{
+    font-size: 2rem;
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin: 2rem 0; 
+}
+
+.content{
+    width: 100%;
+    height: 562px;
+    background-color: blue;
+}
+
+.active{
+    background-color: #fff;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.arrow{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 2rem;
+}
+.s_con{
+    display: none;
+}
+@media screen and (max-width: 1024px) {
+    .title p{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        display: none;
+    }
+    .title{
+        width: 100%;
+        /* margin: 0 100px; */
+        height: 100%;
+
+    }
+    .title p{
+        font-size: 2rem;
+    }
+    .content{
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+    .arrow{
+        display: flex;
+    }
+
+    .s_con{
+        width: 100%;
+        display: block;
+    }
+    .slider{
+        position: relative;
+        display: block;
+        /* justify-content: center; */
+        /* align-items: center; */
+        width: 50%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .pc{
+        width: 90%;
+        margin: 0 auto;
+        border-bottom: 1px solid #000;
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+    }
+    .bn{
+        padding: 1rem;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 5rem;
+        position: absolute;
+        right: -40%;
+        top: 50%;
+        transform: translateY(-50%);
+        /* background-color: #000; */
+        outline: none;
+    }
+    .bb{
+        padding: 1rem;
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 5rem;
+        outline: none;
+        position: absolute;
+        left: -40%;
+        top: 50%;
+        transform: translateY(-50%);
+        /* background-color: #000; */
+    }
+
+    /* .mySwiper{
+        background: #000;
+        width: 100%;
+    } */
+}
+@media screen and (max-width: 500px) {
+    .bn,.bb{
+        font-size: 2.5rem;
+    }
+    .title p{
+        font-size: 1rem ;
+    }
+}

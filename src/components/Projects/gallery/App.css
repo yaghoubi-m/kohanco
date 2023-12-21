@@ -1,0 +1,28 @@
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .square {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 1px solid #000;
+  }
+  
+  .box {
+    position: absolute;
+    width: 50px; /* Adjust the size of your small boxes */
+    height: 50px;
+    background-color: #3498db; /* Adjust the background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bigger-rectangle {
+    position: absolute;
+    border: 1px solid #000;
+    /* Add any other styling properties you need */
+  }

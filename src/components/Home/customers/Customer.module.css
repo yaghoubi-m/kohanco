@@ -1,0 +1,44 @@
+.customers_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem
+}
+
+.customers_container h3{
+    margin-top: 5.4rem;
+    font-size: 3.5rem;
+}
+
+.customers_container p{
+    font-size: 2.5rem;
+}
+
+.logo_container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_container img{
+    width: 30.5rem;
+    height: 20.4rem;
+}
+
+@media screen and (max-width: 1440px) {
+    .logo_container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .customers_container h3{
+        font-size: 1.4rem;
+    }
+
+    .customers_container p{
+        font-size: 1.1rem;
+    }
+}

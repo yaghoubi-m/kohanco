@@ -1,0 +1,43 @@
+.container{
+    margin: 0 auto;
+    width: 95%;
+
+}
+
+.container video{
+   /* display: block; */
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+}
+
+.vid_con{
+    margin: 0 auto;
+    margin-top: 10rem;
+    width: 100%;
+    
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: auto auto auto;
+}
+
+.vid_con div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    width: 100%;
+    background: #000;
+}
+
+@media screen and (max-width: 1024px) {
+    .vid_con{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .vid_con{
+        grid-template-columns: auto;
+    }
+}

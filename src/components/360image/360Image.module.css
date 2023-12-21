@@ -1,0 +1,10 @@
+.con{
+    height: 100vh;
+}
+
+
+@media screen and (max-width: 768px) {
+    .con{
+        height: 32rem;
+    }
+}

@@ -1,0 +1,41 @@
+.container h1{
+    font-size: 2.5rem;
+    margin: 10rem 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog_con{
+    background-color: #e4e4e4;
+    width: 16.6rem;
+    height: 16.6rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 1rem;
+}
+
+.pc{
+    margin-bottom: 10rem;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20rem;
+    padding-bottom: 10rem;
+    border-bottom: 1px solid #000;
+}
+
+@media screen and (max-width: 768px) {
+    .pc{
+        gap: 2rem
+    }
+}
