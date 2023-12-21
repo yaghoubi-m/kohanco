@@ -1,4 +1,5 @@
 'use client';
+import { MyApp } from '@/MyApp';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import NewsField from '@/components/Home/newsfield/NewsField';
@@ -34,7 +35,7 @@ const Projects = () => {
     // const itemWidth = ref.current.clientWidth;
     setItemWidth((200 / width) * 100);
     setItemHeight((300 / height) * 100);
-    console.log(itemWidth);
+    // console.log(itemWidth);
   }, [height, itemWidth, width]);
 
   const f = () => {
@@ -44,9 +45,10 @@ const Projects = () => {
       return items.length / 2 - 1;
     }
   };
-  console.log(Math.floor(f()));
+  // console.log(Math.floor(f()));
   return (
     <>
+        <MyApp />
       {/* <Header /> */}
       <Description />
       {/* <Gallery /> */}
@@ -55,7 +57,7 @@ const Projects = () => {
         className="flex items-center h-[98vh] w-full"
         style={{ justifyContent: 'center' }}
       >
-        <Test
+        {/* <Test
           style={{ width: '95%', height: '100%', border: '1px solid green' }}
           // width={600}
           // height={400}
@@ -68,7 +70,7 @@ const Projects = () => {
           horizontalGap={2}
           Logo={0}
           randomness={0}
-        />
+        /> */}
       </div>
       {/* <NewsField /> */}
       {/* <Footer /> */}

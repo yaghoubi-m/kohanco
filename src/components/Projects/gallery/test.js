@@ -92,6 +92,58 @@ export const Test = ({
   Logo,
   randomness,
 }) => {
+  const [dragging, setDragging] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [relPos, setRelPos] = useState({ x: 0, y: 0 });
+
+  const onMouseDown = (e) => {
+    if (e.button !== 0) return;
+    setDragging(true);
+    setRelPos({
+      x: e.pageX - pos.x,
+      y: e.pageY - pos.y,
+    });
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  const onMouseUp = (e) => {
+    setDragging(false);
+    e.stopPropagation();
+    e.preventDefault();
+  };
+  const onMouseMove = (e) => {
+    if (!dragging) return;
+
+    setPos({
+      x: e.pageX - relPos.x,
+      y: e.pageY - relPos.y,
+    });
+    let newX = e.pageX - relPos.x;
+    let newY = e.pageY - relPos.y;
+    const bounds = {
+      top: 0,
+      right: window.innerWidth,
+      bottom: window.innerHeight,
+      left: 0,
+    };
+    // newX = Math.max(bounds.left, Math.min(newX, bounds.right - ref1.current.clientWidth));
+    // newY = Math.max(
+    //   bounds.bottom,
+    //   Math.min(newX, bounds.bottom - ref1.current.clientHeight),
+    // );
+    // setPos({
+    //   x: newX,
+    //   y: newY,
+    // });
+    e.stopPropagation();
+    e.preventDefault();
+  };
+  const myStyle = {
+    left: `${pos.x}px`,
+    top: `${pos.y}px`,
+  };
+
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
@@ -102,12 +154,13 @@ export const Test = ({
   let xforce = 0;
   let yforce = 0;
   const easing = 0.08;
-  const speed = 0.05;
+  const speedX = 0.05;
+  const speedY = 0.31;
 
   const manageMouseMove = (e) => {
     const { movementX, movementY } = e;
-    xforce += movementX * speed;
-    yforce += movementY * speed;
+    xforce += movementX * speedX;
+    yforce += movementY * speedY;
     if (!rqanimfrID) {
       rqanimfrID = requestAnimationFrame(animate);
     }
@@ -131,6 +184,7 @@ export const Test = ({
       rqanimfrID = null;
     }
   };
+
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [isDynamic, setIsDynamic] = useState(false);
   const totalNoOfLayers = getTotalNoOfLayers(items?.length);
@@ -146,15 +200,17 @@ export const Test = ({
     maxLeft,
   );
 
-  // var bodyRect = document.body.getBoundingClientRect();
-  const parentRef = useRef();
-  const elemRect = parentRef.current?.getBoundingClientRect();
-  // const offsetTop = elemRect?.top - bodyRect.top;
-  // const offsetLeft = elemRect?.left - bodyRect.left;
-
   const [randoms, setRandoms] = useState([]);
-
+  const [a, setA] = useState();
+  const [b, setB] = useState();
   useEffect(() => {
+    const s = () => {
+      // if (document) {
+      return document.body.getBoundingClientRect();
+      // }
+    };
+    setA(s().top);
+    setB(s().left);
     if (items?.length > 0) {
       setRandoms(
         items?.map((item) => [
@@ -163,26 +219,40 @@ export const Test = ({
         ]),
       );
     }
+    console.log('red', ref1.current.clientWidth);
   }, [items]);
+  const parentRef = useRef();
+  const elemRect = parentRef.current?.getBoundingClientRect();
+  const offsetTop = elemRect?.top - a;
+  const offsetLeft = elemRect?.left - b;
 
   return (
     <div
-      className="relative overflow-hidden"
-      // ref={parentRef}
-      style={{ width, height, ...style }}
+      className="relative overflow-hidden w-full "
+      ref={parentRef}
+      style={{ width, height, ...style, userSelect: 'none', cursor: 'pointer' }}
       onMouseMove={(e) => {
         manageMouseMove(e);
       }}
       //   (event) => {
-      //   setCoords({
-      //     x: event.clientX - offsetLeft,
-      //     y: event.clientY - offsetTop,
-      //   });
-      // }}
+      //     setCoords({
+      //       x: event.clientX - offsetLeft,
+      //       y: event.clientY - offsetTop,
+      //     });
+      //   }
+      // }
       // onMouseLeave={() => setIsDynamic(false)}
       // onMouseEnter={() => setIsDynamic(true)}
     >
-      <div className="w-full h-full absolute" ref={ref1}>
+      <div
+        // onMouseDown={onMouseDown}
+        // onMouseUp={onMouseUp}
+        // onMouseLeave={onMouseUp}
+        // onMouseMove={dragging ? onMouseMove : null}
+        // style={myStyle}
+        className="w-full h-full absolute "
+        ref={ref1}
+      >
         <div
           className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
           style={{
@@ -193,7 +263,13 @@ export const Test = ({
             left: (isDynamic ? centerLeft : 50) + '%',
           }}
         >
-          <Image src={'/images/KohanLogo.png'} width={200} height={100} alt="logo" />
+          <Image
+            src={'/images/KohanLogo.png'}
+            style={{ height: 'auto' }}
+            width={200}
+            height={100}
+            alt="logo"
+          />
         </div>
         {items.map((item, i) => {
           const layerNo = getLayerNumber(i + 1);
