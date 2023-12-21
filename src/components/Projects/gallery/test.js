@@ -145,11 +145,11 @@ export const Test = ({
     maxLeft,
   );
 
-  var bodyRect = document.body.getBoundingClientRect();
+  // var bodyRect = document.body.getBoundingClientRect();
   const parentRef = useRef();
   const elemRect = parentRef.current?.getBoundingClientRect();
-  const offsetTop = elemRect?.top - bodyRect.top;
-  const offsetLeft = elemRect?.left - bodyRect.left;
+  // const offsetTop = elemRect?.top - bodyRect.top;
+  // const offsetLeft = elemRect?.left - bodyRect.left;
 
   const [randoms, setRandoms] = useState([]);
 
@@ -220,6 +220,7 @@ export const Test = ({
           const randomY = randoms[i]?.length > 0 ? randoms[i][1] : 0;
           return (
             <div
+              key={i}
               className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
               style={{
                 backgroundColor: 'blue',
