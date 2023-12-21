@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import Image from 'next/image';
 
 const getLayerSize = (layerNo) => (2 * layerNo + 1) ** 2 - (2 * layerNo - 1) ** 2;
 
@@ -101,7 +102,7 @@ export const Test = ({
   let xforce = 0;
   let yforce = 0;
   const easing = 0.08;
-  const speed = 0.01;
+  const speed = 0.05;
 
   const manageMouseMove = (e) => {
     const { movementX, movementY } = e;
@@ -117,7 +118,7 @@ export const Test = ({
   const animate = () => {
     xforce = lerp(xforce, 0, easing);
     yforce = lerp(yforce, 0, easing);
-    console.log(xforce);
+    // console.log(xforce);
 
     gsap.set(ref1.current, { x: `-=${xforce}`, y: `-=${yforce}` });
     if (Math.abs(xforce) < 0.01) xforce = 0;
@@ -185,14 +186,14 @@ export const Test = ({
         <div
           className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
           style={{
-            backgroundColor: 'red',
+            // backgroundColor: 'red',
             width: logoWidth + '%',
             height: logoHeight + '%',
             top: (isDynamic ? centerTop : 50) + '%',
             left: (isDynamic ? centerLeft : 50) + '%',
           }}
         >
-          {Logo}
+          <Image src={'/images/KohanLogo.png'} width={200} height={100} alt="logo" />
         </div>
         {items.map((item, i) => {
           const layerNo = getLayerNumber(i + 1);
@@ -223,6 +224,7 @@ export const Test = ({
               key={i}
               className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
               style={{
+                borderRadius: '25px',
                 backgroundColor: 'blue',
                 width: itemWidth + '%',
                 height: itemHeight + '%',
