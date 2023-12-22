@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import img from '/public/images/Space.png';
+import img from '/images/Space.png';
 import styles from './Customer.module.css';
 const Customers = () => {
   const images = [img, img, img, img, img, img, img];

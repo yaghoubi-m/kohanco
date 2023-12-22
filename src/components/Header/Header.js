@@ -69,7 +69,13 @@ export default function Header({ title }) {
         </div>
         <div className={styles.header_line__two}></div>
         <p className={styles.banner_title}>{title}</p>
-        <Image className={styles.header_logo} width={200} height={300} src={'/images/KohanLogo.png'} alt="logo" />
+        <Image
+          className={styles.header_logo}
+          width={200}
+          height={300}
+          src="/images/KohanLogo.png"
+          alt="logo"
+        />
       </header>
       <div className={styles.explore}>
         <span>EXPLORE</span>
