@@ -106,7 +106,7 @@ export const MyGallery = ({
     maxLeft,
   );
 
-  var bodyRect = document.body.getBoundingClientRect();
+  // var bodyRect = document.body.getBoundingClientRect();
   const parentRef = useRef();
   const elemRect = parentRef.current?.getBoundingClientRect();
   const offsetTop = elemRect?.top;
