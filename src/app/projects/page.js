@@ -48,16 +48,13 @@ const Projects = () => {
   // console.log(Math.floor(f()));
   return (
     <>
-        <MyApp />
       {/* <Header /> */}
       <Description />
       {/* <Gallery /> */}
-      <div
-        ref={ref}
-        className="flex items-center h-[98vh] w-full"
-        style={{ justifyContent: 'center' }}
-      >
-        {/* <Test
+
+      <MyApp />
+
+      {/* <Test
           style={{ width: '95%', height: '100%', border: '1px solid green' }}
           // width={600}
           // height={400}
@@ -71,7 +68,7 @@ const Projects = () => {
           Logo={0}
           randomness={0}
         /> */}
-      </div>
+
       {/* <NewsField /> */}
       {/* <Footer /> */}
       {/* <GalleryCopy /> */}

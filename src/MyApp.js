@@ -29,13 +29,13 @@ export function MyApp() {
     setconW(width);
     // const itemWidth = ref.current.clientWidth;
     setItemWidth((200 / width) * 100);
-    setItemHeight((300 / height) * 100);
+    setItemHeight((250 / height) * 100);
     // console.log(itemWidth);
   }, [height, itemWidth, width]);
 
   return (
     <>
-      <div className="h-10 flex items-center justify-center">
+      <div className="h-10 flex items-center justify-center ">
         <input
           className="h-10 w-20 p-4"
           value={number}
@@ -44,11 +44,12 @@ export function MyApp() {
         />
       </div>
       <div
-        className="flex items-center h-[90vh] w-full"
-        style={{ justifyContent: 'center' }}
+        ref={ref}
+        className="flex items-center h-[90vh] w-full mt-[100px]"
+        style={{ justifyContent: 'center', position: 'relative' }}
       >
         <MyGallery
-          style={{ border: '1px solid green', width: `${width}px` }}
+          style={{ width: `${width}px` }}
           width={width}
           height={800}
           items={items}
