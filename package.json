@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@photo-sphere-viewer/core": "^5.4.3",
+    "axios": "^1.6.3",
     "gsap": "^3.12.2",
     "next": "latest",
     "pure-react-carousel": "^1.30.1",

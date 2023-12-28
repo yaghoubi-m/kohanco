@@ -7,12 +7,89 @@ import styles from './Header.module.css';
 // import logo from '../../assets/images/KohanLogo.png';
 import Link from 'next/link';
 import { IoMenuSharp } from 'react-icons/io5';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import axios from 'axios';
+
 export default function Header({ title }) {
   const [menu, setMenu] = useState(false);
 
+  const [imgUrl, setImgUrl] = useState('');
+  const router = usePathname();
+  const getImageUrl = async () => {
+    const baseurl = 'http://www.dev.kohanco.com';
+
+    if (router === '/') {
+      try {
+        const response = await axios.get(`${baseurl}/api/Home/GetHomePageMainHeader`);
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/projects') {
+      try {
+        const response = await axios.get(`${baseurl}/api/Project/projectMainHeaderImg`);
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/blogs') {
+      try {
+        const response = await axios.get(`${baseurl}/api/Blog/GetBlogHeaderImg`);
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/catalog') {
+      try {
+        const response = await axios.get(
+          `${baseurl}/api/Catalog/GetCatalogsMainHeaderImage`,
+        );
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/about-us') {
+      try {
+        const response = await axios.get(
+          `${baseurl}/api/AboutUs/homepageAboutUsMainHeaderImg`,
+        );
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/contact-us') {
+      try {
+        const response = await axios.get(
+          `${baseurl}/api/ContactUs/GetContactUSMainHeaderImg`,
+        );
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    } else if (router === '/faq') {
+      try {
+        const response = await axios.get(`${baseurl}/api/FAQ/GetFAQMainHeaderImg`);
+        setImgUrl(response.data.slice(1, -1));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getImageUrl();
+  }, [router]);
+
   return (
-    <section className={styles.banner}>
+    <section
+      className={styles.banner}
+      style={{
+        background: ` linear-gradient(180deg, rgba(0,0,0,1) 20%, rgba(27,27,27,0.01) 100%),
+        url('${imgUrl}') 0 0 /cover no-repeat `,
+        // backgroundSize: 'cover',
+      }}
+    >
       <header className={styles.header}>
         <div className={styles.pc}>
           <div className={styles.address_container}>
@@ -62,6 +139,11 @@ export default function Header({ title }) {
               <li>
                 <Link href="/contact-us" className={styles.link}>
                   Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className={styles.link}>
+                  faq
                 </Link>
               </li>
             </ul>

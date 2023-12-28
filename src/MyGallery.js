@@ -119,8 +119,7 @@ export const MyGallery = ({
   const [randoms, setRandoms] = useState([]);
 
   useEffect(() => {
-    console.log('offsetLeft', offsetLeft);
-    console.log('offsetTop', offsetTop);
+    
 
     if (items?.length > 0) {
       setRandoms(
@@ -138,9 +137,7 @@ export const MyGallery = ({
       ref={parentRef}
       style={{ width, height, ...style }}
       onMouseMove={(event) => {
-        console.log('event.clientY', event.clientX);
-        console.log('offsetLeft', offsetLeft);
-        console.log('event.clientX - offsetLeft', event.clientX - offsetLeft);
+        
         setCoords({
           x: event.clientX - offsetLeft,
           y: event.clientY - offsetTop,
@@ -192,13 +189,10 @@ export const MyGallery = ({
           );
         const randomX = randoms[i]?.length > 0 ? randoms[i][0] : 0;
         const randomY = randoms[i]?.length > 0 ? randoms[i][1] : 0;
-        if (i === 1) {
-          console.log('coords.x', 100 * coords.x);
-          console.log('width', width);
-          console.log('left', left);
-        }
+
         return (
           <div
+            key={i}
             className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
             style={{
               borderRadius: '25px',

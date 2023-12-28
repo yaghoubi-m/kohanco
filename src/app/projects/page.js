@@ -23,29 +23,7 @@ function useWindowSize() {
 }
 
 const Projects = () => {
-  const [itemWidth, setItemWidth] = useState(0);
-  const [itemHeight, setItemHeight] = useState(0);
-  const [width, height] = useWindowSize();
-  const [number, setNumber] = useState(100);
-  const items = [...Array(number).keys()].map((i) => i + 1);
-  // const a = Math.floor(items.length / 2) - 1;
-  const ref = useRef();
-  console.log(width, height);
-  useEffect(() => {
-    // const itemWidth = ref.current.clientWidth;
-    setItemWidth((200 / width) * 100);
-    setItemHeight((300 / height) * 100);
-    // console.log(itemWidth);
-  }, [height, itemWidth, width]);
-
-  const f = () => {
-    if (items.length % 2 == 0) {
-      return items.length / 2;
-    } else {
-      return items.length / 2 - 1;
-    }
-  };
-  // console.log(Math.floor(f()));
+  
   return (
     <>
       {/* <Header /> */}

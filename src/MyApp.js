@@ -24,7 +24,7 @@ export function MyApp() {
   const items = [...Array(number).keys()].map((i) => i + 1);
   // const a = Math.floor(items.length / 2) - 1;
   const ref = useRef();
-  console.log(width, height);
+  // console.log(width, height);
   useEffect(() => {
     setconW(width);
     // const itemWidth = ref.current.clientWidth;
