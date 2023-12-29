@@ -1,4 +1,5 @@
 import styles from './AboutUs.module.css';
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
@@ -16,7 +17,7 @@ const AboutUs = () => {
         در تهران,غرفه,غرفه آرائی غرفه سازی نمایشگاه,غرفه آرایی,طراحی غرفه و غرفه سازی در
         تهران و شهرستان, ساخت غرفه نمایشگاه و طراحی دکوراسیون از خدمات ما می باشد.
       </p>
-      <button className={styles.btn}>ادامه مطلب ...</button>
+      <Link href="/about-us" className={styles.btn}>ادامه مطلب ...</Link>
     </section>
   );
 };

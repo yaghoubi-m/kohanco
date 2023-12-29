@@ -1,5 +1,4 @@
 'use client';
-// import Image from 'next/image';
 import {
   CarouselProvider,
   Slider,
@@ -12,22 +11,10 @@ import {
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './SampleProjects.module.css';
-
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-// import React from 'react';
-// import { images } from '../../../../next.config';
+import Link from "next/link";
 
-// import s1 from '../../../assets/images/s1.png';
-// import s2 from '../../../assets/images/s3.png';
-const images = [
-  '/images/s1.png',
-  '/images/s3.png',
-  '/images/s1.png',
-  '/images/s3.png',
-];
-
-const SampleProjects = () => {
+const SampleProjects = ({images}) => {
   return (
     <section>
       <article className={styles.sp_container}>
@@ -40,32 +27,6 @@ const SampleProjects = () => {
           خاطره انگیز شود.
         </p>
         <div className={styles.carousel}>
-          {/* <Carousel
-            showStatus={false}
-            showThumbs={true}
-            autoPlay={false}
-            // thumbWidth={400}
-            className={styles.carousel_con}
-            axis="vertical"
-            swipeable={true}
-            infiniteLoop={true}
-            renderThumbs={() => {
-              return images.map((img, index) => (
-                <Image key={index} width={50} height={50} src={img} alt="logo" />
-              ));
-            }}
-          >
-            {images.map((img, index) => (
-              <Image
-                key={index}
-                src={img}
-                alt={`${index}`}
-                width={650}
-                height={650}
-                priority={index === 0}
-              />
-            ))}
-          </Carousel> */}
           <CarouselProvider
             className={styles.carousel_con}
             orientation="vertical"
@@ -79,9 +40,9 @@ const SampleProjects = () => {
                   <Image
                     // key={index}
                     src={img}
-                    alt={`${index}`}
-                    width={650}
-                    height={650}
+                    alt="images"
+                    width={100}
+                    height={100}
                     // priority={true}
                   />
                 </Dot>
@@ -103,7 +64,7 @@ const SampleProjects = () => {
             </Slider>
           </CarouselProvider>
         </div>
-        <button className={styles.btn}>مشاهده همه نمونه کارها</button>
+        <Link href="/projects" className={styles.btn}>مشاهده همه نمونه کارها</Link>
       </article>
     </section>
   );

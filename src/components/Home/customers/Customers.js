@@ -1,9 +1,8 @@
 import Image from 'next/image';
-const img = '/images/Space.png';
 import styles from './Customer.module.css';
-const Customers = () => {
-  const images = [img, img, img, img, img, img, img];
-  return (
+
+const Customers = async ({images}) => {
+    return (
     <section className={styles.customers_container}>
       <h3>مشتریان ما</h3>
       <p>غرفه سازی برای شرکت‌های مختلف</p>

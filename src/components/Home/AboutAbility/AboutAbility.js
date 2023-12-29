@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image';
 import styles from './AboutAbility.module.css';
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
