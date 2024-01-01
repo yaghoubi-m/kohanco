@@ -32,10 +32,10 @@ const SampleProjects = ({images}) => {
             orientation="vertical"
             naturalSlideWidth={1.5}
             naturalSlideHeight={1}
-            totalSlides={images.length}
+            totalSlides={images.slice(0,5).length}
           >
             <div className={styles.all_dots}>
-              {images.map((img, index) => (
+              {images.slice(0,5).map((img, index) => (
                 <Dot slide={index} key={index}>
                   <Image
                     // key={index}
@@ -49,14 +49,19 @@ const SampleProjects = ({images}) => {
               ))}
             </div>
             <Slider className={styles.slider}>
-              {images.map((img, index) => (
+              {images.slice(0,5).map((img, index) => (
                 <Slide key={index}>
                   <Image
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain'
+                    }}
                     key={index}
                     src={img}
-                    alt={`${index}`}
-                    width={650}
-                    height={650}
+                    alt={index}
+                    width={200}
+                    height={200}
                     // priority={true}
                   />
                 </Slide>

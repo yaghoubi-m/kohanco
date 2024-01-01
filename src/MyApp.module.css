@@ -1,0 +1,14 @@
+.container{
+
+}
+.s_container{
+    display: none;
+}
+@media screen and (max-width: 1420px){
+    .container{
+        display: none;
+    }
+    .s_container{
+        display: grid;
+    }
+}

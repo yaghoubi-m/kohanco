@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './Blog.module.css';
 
 import s2 from '/public/images/s2.png';
@@ -9,45 +11,30 @@ import {
   Slide,
   Slider,
 } from 'pure-react-carousel';
-const Blog = () => {
+import Link from "next/link";
+
+const Blog = ({blogs}) => {
+  // console.log(blogs)
   const arr = [1, 2, 3, 4];
   return (
     <section className={styles.container}>
       <h3>بلاگ</h3>
       <p>آخرین مقالات و اخبار</p>
       <div className={styles.blog_container}>
-        <div className={styles.img_container}>
-          <Image
-            className={styles.img}
-            width={200}
-            height={200}
-            src={s2}
-            alt="blog image"
-          />
-          <p>نمایشگاه بین المللی تهران</p>
-        </div>
-        <div className={styles.img_container}>
-          <Image
-            className={styles.img}
-            width={200}
-            height={200}
-            src={s2}
-            alt="blog image"
-          />
-          <p>نمایشگاه بین المللی تهران</p>
-        </div>
-        <div className={styles.img_container}>
-          <Image
-            className={styles.img}
-            width={200}
-            height={200}
-            src={s2}
-            alt="blog image"
-          />
-          <p>نمایشگاه بین المللی تهران</p>
-        </div>
+          {blogs?.length > 0 && blogs.slice(0,3).reverse().map(blog=>(
+              <Link href={`/blogs/${blog.Title}`} className={styles.img_container}>
+                  <Image
+                      className={styles.img}
+                      width={200}
+                      height={200}
+                      src={s2}
+                      alt="blog image"
+                  />
+                  <p>{blog.Title}</p>
+              </Link>
+          ))}
       </div>
-      <div className={styles.slider}>
+0      <div className={styles.slider}>
         <CarouselProvider
           rientation="horizontal"
           naturalSlideWidth={1.5}
@@ -55,17 +42,17 @@ const Blog = () => {
           totalSlides={arr.length}
         >
           <Slider>
-            {arr.map((i) => (
-              <Slide key={i}>
+            {blogs?.map((i,inx) => (
+              <Slide key={inx}>
                 <div className={styles.img_container}>
-                  <Image
-                    className={styles.img}
-                    width={200}
-                    height={200}
-                    src={s2}
-                    alt="blog image"
-                  />
-                  <p>نمایشگاه بین المللی تهران</p>
+                    <Image
+                        className={styles.img}
+                        width={200}
+                        height={200}
+                        src={s2}
+                        alt="blog image"
+                    />
+                    <p>نمایشگاه بین المللی تهران</p>
                 </div>
               </Slide>
             ))}
@@ -73,7 +60,9 @@ const Blog = () => {
           <DotGroup className={styles.dot} style={{ width: '150px', height: '150px' }} />
         </CarouselProvider>
       </div>
-      <button className={styles.btn}>مشاهده همه</button>
+        <Link href="/blogs">
+            <button className={styles.btn}>مشاهده همه</button>
+        </Link>
     </section>
   );
 };

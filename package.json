@@ -11,14 +11,18 @@
   "dependencies": {
     "@photo-sphere-viewer/core": "^5.4.3",
     "axios": "^1.6.3",
+    "drag-scroll-provider": "^1.0.6",
     "gsap": "^3.12.2",
     "next": "latest",
     "pure-react-carousel": "^1.30.1",
     "react": "latest",
     "react-dom": "latest",
+    "react-draggable": "^4.4.6",
     "react-icons": "^4.11.0",
+    "react-indiana-drag-scroll": "^3.0.3-alpha",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "react-responsive-carousel": "^3.2.23",
+    "react-use-draggable-scroll": "^0.4.7",
     "sharp": "^0.33.1"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "^8.4.32",
+    "sass": "^1.69.6",
     "tailwindcss": "^3.4.0"
   }
 }

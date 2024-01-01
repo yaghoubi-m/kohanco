@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6rem
+    gap: 6rem;
+    margin-bottom: 10rem;
 }
 
 .customers_container h3{

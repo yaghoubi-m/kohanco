@@ -14,10 +14,18 @@ const metadata = {
 
 export default function RootLayout({children}) {
     const router = usePathname();
-    useEffect(()=>{
-        window.scrollTo(0,0)
-    } ,[router])
-    const r = router.substring(1).split('-').reduce((t,c)=>t+" "+c)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [router])
+
+    const r = router.substring(1)
+        .split('-')
+        .reduce((t, c) => t + " " + c)
+        .split('/')
+        .reduce((t, c) => t + " " + c)
+
+
     return (
         <html lang="en" dir="rtl">
         <body>

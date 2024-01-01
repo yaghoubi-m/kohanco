@@ -78,7 +78,7 @@ export default function Header({title}) {
     useEffect(() => {
         getImageUrl();
     }, [router]);
-    console.log(router)
+    // console.log(router)
     return (
         <section
             className={styles.banner}
