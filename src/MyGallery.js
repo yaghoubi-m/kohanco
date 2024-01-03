@@ -119,7 +119,7 @@ export const MyGallery = ({
   const [randoms, setRandoms] = useState([]);
 
   useEffect(() => {
-    
+
 
     if (items?.length > 0) {
       setRandoms(
@@ -132,19 +132,19 @@ export const MyGallery = ({
   }, [items]);
 
   return (
-    <div
-      className="relative overflow-hidden annnnn"
-      ref={parentRef}
-      style={{ width, height, ...style }}
-      onMouseMove={(event) => {
-        
-        setCoords({
-          x: event.clientX - offsetLeft,
-          y: event.clientY - offsetTop,
-        });
-      }}
-      onMouseLeave={() => setIsDynamic(false)}
-      onMouseEnter={() => setIsDynamic(true)}
+    <
+      // className="select-none inner-div"
+      // ref={parentRef}
+      // style={{ width, height, ...style }}
+      // onMouseMove={(event) => {
+      //
+      //   setCoords({
+      //     x: event.clientX - offsetLeft,
+      //     y: event.clientY - offsetTop,
+      //   });
+      // }}
+      // onMouseLeave={() => setIsDynamic(false)}
+      // onMouseEnter={() => setIsDynamic(true)}
     >
       <div
         className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
@@ -210,6 +210,6 @@ export const MyGallery = ({
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
