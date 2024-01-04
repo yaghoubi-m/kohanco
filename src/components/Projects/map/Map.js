@@ -91,7 +91,7 @@ function DraggableMap() {
           // // vertical={true}
           // // horizontal={true}
       >
-        <div className="inner-div relative">
+        <div className="inner-div mx-auto">
 
         </div>
       </ScrollContainer>
