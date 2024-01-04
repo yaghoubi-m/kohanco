@@ -92,20 +92,7 @@ function DraggableMap() {
           // // horizontal={true}
       >
         <div className="inner-div relative">
-          <MyGallery
-              // style={getStyle()}
-              width={width}
-              height={600}
-              items={items}
-              logoWidth={7}
-              logoHeight={10}
-              itemWidth={itemWidth}
-              itemHeight={itemHeight}
-              verticalGap={2}
-              horizontalGap={2}
-              Logo={0}
-              randomness={0}
-          />
+
         </div>
       </ScrollContainer>
   );
