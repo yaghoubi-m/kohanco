@@ -9,13 +9,14 @@ import {IoMenuSharp} from 'react-icons/io5';
 import {useEffect, useState} from 'react';
 import {usePathname} from 'next/navigation';
 import axios from 'axios';
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 export default function Header({title}) {
     const [menu, setMenu] = useState(false);
     const [imgUrl, setImgUrl] = useState('');
     const router = usePathname();
     const getImageUrl = async () => {
-        const baseurl = 'http://www.dev.kohanco.com';
+        const baseurl = process.env.BASEURL;
 
         if (router === '/') {
             try {
@@ -31,7 +32,7 @@ export default function Header({title}) {
             } catch (e) {
                 console.log(e);
             }
-        } else if (router === '/blogs') {
+        } else if (router.includes('/blogs')) {
             try {
                 const response = await axios.get(`${baseurl}/api/Blog/GetBlogHeaderImg`);
                 setImgUrl(response.data.slice(1, -1));
@@ -73,6 +74,7 @@ export default function Header({title}) {
                 console.log(e);
             }
         }
+      console.log(router.includes('/blogs'))
     };
 
     useEffect(() => {
@@ -126,7 +128,7 @@ export default function Header({title}) {
                             </li>
                             <li>
                                 <Link href="/blogs" style={{
-                                    borderBottom: `${router === '/blogs' ? '2px solid #FFF' : ''}`
+                                    borderBottom: `${router.includes('/blogs') ? '2px solid #FFF' : ''}`
                                 }} className={styles.link}>
                                     Blogs
                                 </Link>

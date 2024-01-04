@@ -9,35 +9,36 @@ function DraggableMap() {
   const [itemHeight, setItemHeight] = useState(0);
   // const [conW, setconW] = useState(0);
   const [width, height] = useWindowSize();
-  const [number, setNumber] = useState(80);
+  const [number, setNumber] = useState(400);
   const items = [...Array(number).keys()].map((i) => i + 1);
   // const a = Math.floor(items.length / 2) - 1;
   const scrollableDivRef = useRef();
   // console.log(width, height);
   useEffect(() => {
-    const handleWheelScroll = (e) => {
-      const scrollableDiv = scrollableDivRef.current;
-      if (
-          (e.deltaY < 0 && scrollableDiv.scrollTop === 0)
-          (e.deltaY > 0 && scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight)
-      ) {
-        return;
-      }
-      e.preventDefault();
-      // const delta = `${e.deltaY} ${e.detail} ${e.wheelDelta}`;
-      scrollableDiv.scrollTop += delta;
-      // e.preventDefault();
-      // const delta = e.deltaY e.detail e.wheelDelta;
-      // scrollableDiv.scrollTop += delta;
-    };
+    const scrollableDiv = scrollableDivRef.current;
+    //
+    // const handleWheelScroll = (e) => {
+    //   if (
+    //       (e.deltaY < 0 && scrollableDiv.scrollTop === 0)
+    //       (e.deltaY > 0 && scrollableDiv.scrollTop + scrollableDiv.clientHeight === scrollableDiv.scrollHeight)
+    //   ) {
+    //     return;
+    //   }
+    //   e.preventDefault();
+    //   // const delta = `${e.deltaY} ${e.detail} ${e.wheelDelta}`;
+    //   scrollableDiv.scrollTop += delta;
+    //   // e.preventDefault();
+    //   // const delta = e.deltaY e.detail e.wheelDelta;
+    //   // scrollableDiv.scrollTop += delta;
+    // };
 
 
 
     // setconW(width);
     // console.log(height)
     // const itemWidth = ref.current.clientWidth;
-    setItemWidth((170 / width) * 100);
-    setItemHeight((218 / height) * 100);
+    setItemWidth((250 / width) * 100);
+    setItemHeight((170 / 600) * 100);
     // console.log(itemHeight,itemWidth)
     // console.log(itemWidth);
   }, [height, itemWidth, width]);
@@ -80,20 +81,36 @@ function DraggableMap() {
 
   return (
       <ScrollContainer
-          ref={scrollableDivRef}
+          // ref={scrollableDivRef}
           mouseScroll={true}
           // overscroll={true}
           // rubberBand={false}
           // inertia={false}
           // cursor={false}
           // // ref={containerRef}
-          className="container"
+          style={{
+            height:'600px'
+          }}
+          className="container  relative"
           // // vertical={true}
           // // horizontal={true}
       >
-        <div className="inner-div mx-auto">
-
-        </div>
+        {/*<div className="inner-div mx-auto relative overflow-scroll">*/}
+          <MyGallery
+              style={{ width: `${width}px` }}
+              width={width}
+              height={600}
+              items={items}
+              logoWidth={7}
+              logoHeight={10}
+              itemWidth={itemWidth}
+              itemHeight={itemHeight}
+              verticalGap={3}
+              horizontalGap={2}
+              Logo={0}
+              randomness={0}
+          />
+      {/*</div>*/}
       </ScrollContainer>
   );
 }

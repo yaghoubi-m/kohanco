@@ -29,21 +29,28 @@ const getBlogs = async () => {
   }
 }
 
-const get360 = () => {
-
+const get360 = async () => {
+  try {
+    const response = await axios.get(`${process.env.BASEURL}/api/Home/GetHeader360`)
+    return response.data
+  }catch (e) {
+    console.log(e)
+  }
 }
 
 export default async function Home() {
   const sampleProjectImages = await getSampleProject()
   const customersImages = await getCustomers()
   const blogs = await getBlogs()
-  console.log(blogs)
+  const image360 = await get360()
+
+  // console.log("blogs",blogs)
 
   return (
       <>
         <AboutUs/>
         <Floating />
-        <Container360Img/>
+        <Container360Img img={image360}/>
         <SampleProjects images={sampleProjectImages}/>
         <Customers images={customersImages}/>
         <Scroll />

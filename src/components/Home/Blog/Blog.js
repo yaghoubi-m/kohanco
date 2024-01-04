@@ -21,8 +21,8 @@ const Blog = ({blogs}) => {
       <h3>بلاگ</h3>
       <p>آخرین مقالات و اخبار</p>
       <div className={styles.blog_container}>
-          {blogs?.length > 0 && blogs.slice(0,3).reverse().map(blog=>(
-              <Link href={`/blogs/${blog.Title}`} className={styles.img_container}>
+          {blogs?.length > 0 && blogs.slice(0,3).reverse().map((blog,index)=>(
+              <Link key={index} href={`/blogs/${blog.Id}`} className={styles.img_container}>
                   <Image
                       className={styles.img}
                       width={200}

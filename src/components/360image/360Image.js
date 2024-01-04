@@ -20,7 +20,7 @@ const baseUrl = 'https://photo-sphere-viewer-data.netlify.app/assets/';
 //     ssr: false,
 //   },
 // );
-const Image360Deg = () => {
+const Image360Deg = ({img}) => {
   const photoSphereRef = React.createRef(<ReactPhotoSphereViewer />);
   // console.log('sss');
   useEffect(() => {
@@ -38,7 +38,7 @@ const Image360Deg = () => {
       <ReactPhotoSphereViewer
         ref={photoSphereRef}
         // animate={{speed:'200rpm'}}
-        src={`/images/360.jpg`}
+        src={img[0]}
         height={'100%'}
         width={'100%'}
         loadingImg={baseUrl + 'loader.gif'}
