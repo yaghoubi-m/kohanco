@@ -8,14 +8,14 @@ const ImgForm = () => {
         style={{
           position: 'absolute',
           width: '100%',
-          // height: 'auto',
+          height: '70vh',
         }}
-        src={'/blurimg.jpeg'}
-        width={1442}
-        height={663}
+        src={'/images/blurimg.jpeg'}
+        width={500}
+        height={400}
         alt="backdrop"
       />
-      <Comments />
+      <Comments s="" />
     </section>
   );
 };

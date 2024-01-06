@@ -4,12 +4,14 @@ import {MyGallery} from "@/MyGallery";
 import {useWindowSize} from "@/MyApp";
 import ScrollContainer from "react-indiana-drag-scroll";
 import 'react-indiana-drag-scroll/dist/style.css'
-function DraggableMap() {
+function DraggableMap({data}) {
   const [itemWidth, setItemWidth] = useState(0);
   const [itemHeight, setItemHeight] = useState(0);
+  const [logoWidth, setLogoWidth] = useState(0);
+  const [logoHeight, setLogoHeight] = useState(0);
   // const [conW, setconW] = useState(0);
   const [width, height] = useWindowSize();
-  const [number, setNumber] = useState(400);
+  const [number, setNumber] = useState(94);
   const items = [...Array(number).keys()].map((i) => i + 1);
   // const a = Math.floor(items.length / 2) - 1;
   const scrollableDivRef = useRef();
@@ -33,13 +35,23 @@ function DraggableMap() {
     // };
 
 
-
     // setconW(width);
     // console.log(height)
     // const itemWidth = ref.current.clientWidth;
-    setItemWidth((250 / width) * 100);
-    setItemHeight((170 / 600) * 100);
-    // console.log(itemHeight,itemWidth)
+    const ww = window.innerWidth
+    if (ww >= 768){
+      setItemWidth((400 / width) * 100);
+      setItemHeight((170 / 600) * 100);
+      setLogoWidth((150 / width) * 100);
+      setLogoHeight((200 / 600) * 100);
+    } else if(ww < 768){
+      setItemWidth((200 / width) * 100);
+      setItemHeight((140 / 600) * 100);
+      setLogoWidth((150 / width) * 100);
+      setLogoHeight((200 / 600) * 100);
+    }
+
+    console.log(logoWidth,logoHeight)
     // console.log(itemWidth);
   }, [height, itemWidth, width]);
 
@@ -77,41 +89,41 @@ function DraggableMap() {
   //   containerRef.current.scrollTop = -yDiff;
   // };
 
-
+  console.log(data)
 
   return (
-      <ScrollContainer
+      <div
           // ref={scrollableDivRef}
-          mouseScroll={true}
+          // mouseScroll={true}
           // overscroll={true}
           // rubberBand={false}
           // inertia={false}
           // cursor={false}
           // // ref={containerRef}
           style={{
-            height:'600px'
+            height:'600px',
           }}
-          className="container  relative"
+          className="container"
           // // vertical={true}
           // // horizontal={true}
       >
-        {/*<div className="inner-div mx-auto relative overflow-scroll">*/}
+        <div className="inner-div relative">
           <MyGallery
               style={{ width: `${width}px` }}
               width={width}
               height={600}
-              items={items}
-              logoWidth={7}
-              logoHeight={10}
+              items={data}
+              logoWidth={logoWidth}
+              logoHeight={logoHeight}
               itemWidth={itemWidth}
               itemHeight={itemHeight}
-              verticalGap={3}
+              verticalGap={5}
               horizontalGap={2}
               Logo={0}
               randomness={0}
           />
-      {/*</div>*/}
-      </ScrollContainer>
+      </div>
+      </div>
   );
 }
 

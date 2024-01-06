@@ -2,6 +2,7 @@ import axios from "axios";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import blog from "@/components/Home/Blog/Blog";
 import {notFound} from "next/navigation";
+import Image from "next/image";
 // import blog from "@/components/Home/Blog/Blog";
 // import blog from "@/components/Home/Blog/Blog";
 const fetchBlog = async (id) => {
@@ -18,18 +19,20 @@ const fetchBlog = async (id) => {
 
 export default async function Page({params}) {
   const blog = await fetchBlog(params.slug)
-  // if (!blog.Id) notFound()
+  if (!blog.Id) notFound()
   console.log('blog: ', blog)
   console.log('params: ', params)
+  const img =blog.Picture?.slice(1,-1)
+  console.log("sssssssssss",img)
 
   return (
       <div>
+        {/*<Image src={img} width={500} height={300} alt={blog.Title} />*/}
         <h1 className="text-7xl text-center mt-10">{blog.Title}</h1>
         <p className="text-5xl text-center mt-10">{blog.Body}</p>
       </div>
   )
 }
-
 
 export async function generateStaticParams() {
   const posts = await fetch(`${process.env.BASEURL}/api/Blog/GetAll`).then((res) => res.json())

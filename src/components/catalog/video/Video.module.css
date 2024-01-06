@@ -6,7 +6,8 @@
 
 .container video{
    /* display: block; */
-   width: 100%;
+   width: 80%;
+    margin: 0 auto;
    height: auto;
    object-fit: cover;
 }
@@ -15,7 +16,7 @@
     margin: 0 auto;
     margin-top: 10rem;
     width: 100%;
-    
+
     display: grid;
     gap: 5rem;
     grid-template-columns: auto auto auto;

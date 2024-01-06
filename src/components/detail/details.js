@@ -17,11 +17,12 @@ import {
 import NewsField from '../Home/newsfield/NewsField';
 // import Image from 'next/image';
 const images = ['/s1.png', '/s3.png', '/s1.png', '/s3.png', '/s1.png', '/s3.png'];
-const Details = () => {
+const Details = ({data}) => {
+  console.log(data)
   return (
     <section className={styles.container}>
       <div className={styles.md}>
-        <h1>غرفه سازی شرکت کراپ در نمایشگاه بین المللی تهران</h1>
+        <h1>{data.Title}</h1>
         <div className={styles.rate2}>
           <span>0 (0)</span>
           <div className={styles.stars}>
@@ -35,25 +36,25 @@ const Details = () => {
       </div>
       <div className={styles.pc}>
         <div className={styles.dc}>
-          <div>
+          <div className="flex gap-5">
             <span className={styles.title}>کارفرما: </span>
-            <span className={styles.desc}>ک</span>
+            <span className={styles.desc}>{data.Title}</span>
           </div>
-          <div>
+          <div className="flex gap-5">
             <span className={styles.title}>متریال: </span>
-            <span className={styles.desc}>ک</span>
+            <span className={styles.desc}>{data.ProjectDetail.MaterialDescription}</span>
           </div>
-          <div>
+          <div className="flex gap-5">
             <span className={styles.title}>متراژ: </span>
-            <span className={styles.desc}>ک</span>
+            <span dir="ltr" className={styles.desc}>{data.ProjectDetail.Meterage}</span>
           </div>
-          <div>
+          <div className="flex gap-5">
             <span className={styles.title}>محل اجرا: </span>
-            <span className={styles.desc}>ک</span>
+            <span className={styles.desc}>{data.ProjectDetail.OperationPlace}</span>
           </div>
-          <div>
+          <div className="flex gap-5">
             <span className={styles.title}>سال اجرا: </span>
-            <span className={styles.desc}>ک</span>
+            <span className={styles.desc}>{data.ProjectDetail.OperationDate}</span>
           </div>
           <div className={styles.share}>
             <span>با دیگران به اشتراک بگذارید</span>
@@ -89,7 +90,7 @@ const Details = () => {
                     alt={`${index}`}
                     width={650}
                     height={650}
-                    priority={index === 0}
+                    // priority={index === 0}
                   />
                 </Slide>
               ))}
@@ -105,7 +106,7 @@ const Details = () => {
                       alt={`${index}`}
                       width={650}
                       height={650}
-                      priority={index === 0}
+                      // priority={index === 0}
                     />
                   </Dot>
                 ))}

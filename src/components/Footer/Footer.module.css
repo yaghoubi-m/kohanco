@@ -6,7 +6,7 @@
 .main_container{
     display: flex;
     justify-content: space-between;
-    padding: 0 2rem; 
+    padding: 0 2rem;
     padding-top: 2rem;
 }
 
@@ -20,24 +20,25 @@
     display: flex;
     margin-top: 5rem;
     height: 25rem;
-    gap: 8rem
+    gap: 10rem
 }
 
 .link_container > div{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    justify-content: flex-end;
+    gap: 1rem;
+    justify-content: flex-start;
 }
 
 .link_container > div:last-of-type{
+    /*justify-content: flex-start;*/
     /* margin-right: 11rem; */
 }
 
 .logo{
     width: 23rem;
     height: 32.6rem;
-    
+
 }
 
 .contact{
@@ -48,11 +49,11 @@
 }
 
 .contact div{
-    display: flex;  
+    display: flex;
     /* justify-content: center; */
-    align-items: center;  
+    align-items: center;
     gap: 1rem;
-    
+
 }
 
 .contact p{
@@ -107,7 +108,7 @@
     }
     .main_container a, .main_container p{
         font-size: 2rem;
-    }   
+    }
     .link_container{
 
         height: unset;
@@ -176,7 +177,7 @@
     }
     .main_container a, .main_container p{
         font-size: 1rem;
-    }   
+    }
     .sec_container{
         font-size: 1rem;
     }

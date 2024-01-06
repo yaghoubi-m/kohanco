@@ -6,12 +6,12 @@ const Video = () => {
   return (
     <section className={styles.container}>
       <video controls>
-        <source src="/video.mp4"></source>
+        <source src="/images/video.mp4"></source>
       </video>
       <div className={styles.vid_con}>
         {arr.map((i) => (
           <div key={i}>
-            <Image src={'/play.svg'} width={60} height={60} alt="img" />
+            <Image src={'/images/play.svg'} width={60} height={60} alt="img" />
           </div>
         ))}
       </div>

@@ -29,11 +29,28 @@
     linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 
 }
+.img_container2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 25.9358rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+}
 
 .img_container p{
     color: #FFF;
     position: absolute;
-    top: 30.2rem;
+    top:70%;
+    right: 2.5rem;
+    font-size: 2rem;
+}
+.img_container2 p{
+    color: #FFF;
+    position: absolute;
+    top: 70%;
     right: 2.5rem;
     font-size: 2rem;
 }
@@ -57,6 +74,7 @@
 
 .slider{
     display: none;
+
 }
 
 @media screen and (max-width:1024px) {

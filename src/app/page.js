@@ -49,7 +49,7 @@ export default async function Home() {
   return (
       <>
         <AboutUs/>
-        <Floating />
+        {/*<Floating />*/}
         <Container360Img img={image360}/>
         <SampleProjects images={sampleProjectImages}/>
         <Customers images={customersImages}/>

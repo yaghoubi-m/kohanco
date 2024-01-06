@@ -16,18 +16,18 @@ const Footer = () => {
         <div className={styles.link_container}>
           <div>
             <Link href="/">صفحه اصلی</Link>
-            <Link href="/">پروژه‌ها</Link>
-            <Link href="/">بلاگ</Link>
-            <Link href="/">کاتالوگ</Link>
-            <Link href="/">تماس با ما</Link>
-            <Link href="/">درباره ما</Link>
+            <Link href="/projects">پروژه‌ها</Link>
+            <Link href="/blogs">بلاگ</Link>
+            <Link href="/catalog">کاتالوگ</Link>
+            <Link href="/contact-us">تماس با ما</Link>
+            <Link href="/about-us">درباره ما</Link>
+            <Link href="/faq">سوالات متداول</Link>
           </div>
           <div>
-            <Link href="/">سوالات متداول</Link>
-            <Link href="/">نظرسنجی</Link>
-            <Link href="/">همکاری با ما</Link>
-            <Link href="/">پیوندها</Link>
-            <Link href="/">همکاران</Link>
+            {/*<Link href="/survey">نظرسنجی</Link>*/}
+            {/*<Link href="/">همکاری با ما</Link>*/}
+            {/*<Link href="/">پیوندها</Link>*/}
+            {/*<Link href="/">همکاران</Link>*/}
           </div>
         </div>
         <div className={styles.md}>
@@ -35,7 +35,7 @@ const Footer = () => {
             className={styles.logo}
             height={200}
             width={200}
-            src={'/public/images/KohanLogo.png'}
+            src={'/images/KohanLogo.png'}
             alt="logo"
           />
           <div className={styles.contact}>

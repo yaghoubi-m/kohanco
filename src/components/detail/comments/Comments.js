@@ -1,8 +1,9 @@
 import styles from './Comments.module.css';
 
-const Comments = () => {
+const Comments = ({s}) => {
+
   return (
-    <section className={styles.pc}>
+    <section style={{position: s}} className={styles.pc}>
       <div className={styles.container}>
         <h3>دیدگاه خود را بنویسید</h3>
         <textarea placeholder="دیدگاه..."></textarea>

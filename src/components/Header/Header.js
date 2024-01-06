@@ -45,6 +45,7 @@ export default function Header({title}) {
                     `${baseurl}/api/Catalog/GetCatalogsMainHeaderImage`,
                 );
                 setImgUrl(response.data.slice(1, -1));
+                setImgUrl(`${process.env.BASEURL}/Images/Homepage/CatalogsMainHeaderImagecatalog.png`)
             } catch (e) {
                 console.log(e);
             }

@@ -26,7 +26,7 @@ const Employ = () => {
             {arr.map((i) => (
               <Slide key={i}>
                 <div className={styles.containers}>
-                  <Img src={'/person.jpeg'} width={457} height={331} alt="preson" />
+                  <Img src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
                   <div className={styles.mask}></div>
                   <div className={styles.details}>
                     <p>آقای حمید نوریانی</p>
@@ -41,7 +41,7 @@ const Employ = () => {
       </div>
       <section className={styles.container}>
         <div className={styles.containers}>
-          <Image src={'/person.jpeg'} width={457} height={331} alt="preson" />
+          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
           <div className={styles.mask}></div>
           <div className={styles.details}>
             <p>آقای حمید نوریانی</p>
@@ -49,7 +49,7 @@ const Employ = () => {
           </div>
         </div>
         <div className={styles.containers}>
-          <Image src={'/person.jpeg'} width={457} height={331} alt="preson" />
+          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
           <div className={styles.mask}></div>
           <div className={styles.details}>
             <p>آقای حمید نوریانی</p>
@@ -57,7 +57,7 @@ const Employ = () => {
           </div>
         </div>
         <div className={styles.containers}>
-          <Image src={'/person.jpeg'} width={457} height={331} alt="preson" />
+          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
           <div className={styles.mask}></div>
           <div className={styles.details}>
             <p>آقای حمید نوریانی</p>

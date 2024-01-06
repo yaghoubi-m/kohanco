@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import {useEffect, useRef, useState} from 'react';
 import ScrollContainer from "react-indiana-drag-scroll";
+import styles from "@/components/Home/Blog/Blog.module.css";
+import Link from "next/link";
 
 const getLayerSize = (layerNo) => (2 * layerNo + 1) ** 2 - (2 * layerNo - 1) ** 2;
 
@@ -101,8 +103,27 @@ export const MyGallery = ({
   // const minTop =0* Math.abs(50 - totalNoOfLayers * (itemHeight + verticalGap)) ;
 
   // IN BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD
-  const minLeft = -40
-  const minTop = -30
+  let minLeft = 0
+  let minTop = 0
+  const windowWidth = window.innerWidth
+
+  if (windowWidth > 1250) {
+    minLeft = -40
+    minTop = -30
+  } else if (windowWidth < 1250 && windowWidth > 850) {
+    minLeft = -35
+    minTop = -30
+  } else if (windowWidth < 850 && windowWidth > 410) {
+    minLeft = -25
+    minTop = -30
+  } else if (windowWidth < 410) {
+    minLeft = -15
+    minTop = -30
+  }
+
+  console.log('mins', minLeft, minTop)
+  console.log('window', windowWidth)
+  console.log(items)
   // TA INJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
   const [centerTop, centerLeft] = getDynamicAbsolutePosition(
@@ -128,21 +149,21 @@ export const MyGallery = ({
   //   console.log('offsetTop', offsetTop);
 
   const [randoms, setRandoms] = useState([]);
-const imgref = useRef()
+  const imgref = useRef()
   const scrollableDivRef = useRef()
 
   useEffect(() => {
-  //   const elemRect = imgref.current?.getBoundingClientRect();
-  //   const h =scrollableDivRef.current?.clientHeight
-  //   const w =scrollableDivRef.current?.clientWidth
-  //   const top = elemRect?.top+0.2*h;
-  //   const left = elemRect?.left+0.2*w;
-  //   console.log('top',top)
-  //   console.log('left',left)
-  // scrollableDivRef.current?.scrollTo({
-  //   top, left
-  // })
-  //   imgref.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+    //   const elemRect = imgref.current?.getBoundingClientRect();
+    //   const h =scrollableDivRef.current?.clientHeight
+    //   const w =scrollableDivRef.current?.clientWidth
+    //   const top = elemRect?.top+0.2*h;
+    //   const left = elemRect?.left+0.2*w;
+    //   console.log('top',top)
+    //   console.log('left',left)
+    // scrollableDivRef.current?.scrollTo({
+    //   top, left
+    // })
+    //   imgref.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
     if (items?.length > 0) {
       setRandoms(
           items?.map((item) => [
@@ -153,21 +174,21 @@ const imgref = useRef()
     }
   }, [items]);
   const elemRect2 = imgref.current?.getBoundingClientRect();
-  let h =scrollableDivRef.current?.clientHeight
-  let w =scrollableDivRef.current?.clientWidth
-  let top = (isDynamic ? centerTop-50 : 50) *h/100;
+  let h = scrollableDivRef.current?.clientHeight
+  let w = scrollableDivRef.current?.clientWidth
+  let top = (isDynamic ? centerTop - 50 : 50) * h / 100;
   // const top = 7*maxTop-h/80;
-  let left = (isDynamic ? centerLeft-50 : 50) *w/100;
+  let left = (isDynamic ? centerLeft - 50 : 50) * w / 100;
   // const left = 6*maxLeft+w/2;
 // useEffect(()=>{
-  setTimeout(()=>{
-    console.log('top',top)
-    console.log('centerTop',centerTop)
+  setTimeout(() => {
+    console.log('top', top)
+    console.log('centerTop', centerTop)
     scrollableDivRef.current?.scrollTo({
       top, left
     })
 
-  },500)
+  }, 500)
 
 // },[])
 
@@ -191,14 +212,19 @@ const imgref = useRef()
             mouseScroll={true}
             // style={{ width, height }}
             style={{
-                height:'100%'
+              height: '100%',
+              border: '2px solid #000',
+              padding: '2rem',
+              // selectUser: 'none'
+
+
             }}
             // overscroll={true}
             // rubberBand={false}
             // inertia={false}
             // cursor={false}
             // // ref={containerRef}
-            className="container relative"
+            className="container relative select-none"
             // // vertical={true}
             // // horizontal={true}
         >
@@ -223,7 +249,7 @@ const imgref = useRef()
                 alt="logo"
             />
           </div>
-          {items.map((item, i) => {
+          {items?.map((item, i) => {
             const layerNo = getLayerNumber(i + 1);
             const itemNoInLayer = getItemNoInLayer(i + 1, layerNo);
             let [top, left] = getStaticAbsolutePosition(
@@ -249,13 +275,12 @@ const imgref = useRef()
               );
             const randomX = randoms[i]?.length > 0 ? randoms[i][0] : 0;
             const randomY = randoms[i]?.length > 0 ? randoms[i][1] : 0;
-
             return (
                 <div
                     key={i}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
+                    className="absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden hover:cursor-pointer"
                     style={{
-                      borderRadius: '25px',
+                      borderRadius: '10px',
                       backgroundColor: 'blue',
                       width: itemWidth + '%',
                       height: itemHeight + '%',
@@ -266,7 +291,22 @@ const imgref = useRef()
                       fontSize: '14',
                     }}
                 >
-                  {item}
+                  <Link href={`projects/${item.Id}`} style={{
+                    // background: ` linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
+                    // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`
+                  }} className="relative flex flex-col">
+                    <Image
+                        className="w-full h-[180px] z-[-1] object-fill"
+                        width={200}
+                        height={200}
+                        src={item.ThumbnailPicture?.slice(1, -1)}
+                        alt={item.Title}
+                    />
+                    <div className="text-4xl flex justify-between px-2 w-full absolute top-[60%]">
+                      <p className="">{item.Title || 'title'}</p>
+                      <p className="">{item.ProjectDetail.OperationPlace || 'place'}</p>
+                    </div>
+                  </Link>
                 </div>
             );
           })}

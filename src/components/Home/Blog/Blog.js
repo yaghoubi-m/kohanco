@@ -27,7 +27,7 @@ const Blog = ({blogs}) => {
                       className={styles.img}
                       width={200}
                       height={200}
-                      src={s2}
+                      src={blog.ThumbPicture?.slice(1,-1)}
                       alt="blog image"
                   />
                   <p>{blog.Title}</p>
@@ -36,10 +36,11 @@ const Blog = ({blogs}) => {
       </div>
 0      <div className={styles.slider}>
         <CarouselProvider
+            className="ltr:ml-2"
           rientation="horizontal"
           naturalSlideWidth={1.5}
           naturalSlideHeight={1}
-          totalSlides={arr.length}
+          totalSlides={blogs.length}
         >
           <Slider>
             {blogs?.map((i,inx) => (
@@ -49,10 +50,10 @@ const Blog = ({blogs}) => {
                         className={styles.img}
                         width={200}
                         height={200}
-                        src={s2}
+                        src={i.ThumbPicture?.slice(1,-1)}
                         alt="blog image"
                     />
-                    <p>نمایشگاه بین المللی تهران</p>
+                    <p>{i.Title}</p>
                 </div>
               </Slide>
             ))}
