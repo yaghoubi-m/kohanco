@@ -49,11 +49,11 @@ export function MyApp() {
       {/*    style={{ border: '1px solid #ccc' }}*/}
       {/*  />*/}
       {/*</div>*/}
-      <div className={`grid md:grid-cols-3 grid-cols-1 justify-center justify-items-center gap-y-5 ${styles.s_container}`}>
-        {items.map(i=>(
-            <div key={i} className="bg-amber-950 w-[200px] h-[250px] text-white justify-center items-center flex">{i}</div>
-        ))}
-      </div>
+      {/*<div className={`grid md:grid-cols-3 grid-cols-1 justify-center justify-items-center gap-y-5 ${styles.s_container}`}>*/}
+      {/*  {items.map(i=>(*/}
+      {/*      <div key={i} className="bg-amber-950 w-[200px] h-[250px] text-white justify-center items-center flex">{i}</div>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
       <div
         ref={ref}
         className={`flex items-center h-[650px] w-full mt-[100px] border-4 ${styles.container}`}

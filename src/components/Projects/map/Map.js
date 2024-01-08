@@ -40,7 +40,7 @@ function DraggableMap({data}) {
     // const itemWidth = ref.current.clientWidth;
     const ww = window?.innerWidth
     if (ww >= 768){
-      setItemWidth((400 / width) * 100);
+      setItemWidth((300 / width) * 100);
       setItemHeight((170 / 600) * 100);
       setLogoWidth((150 / width) * 100);
       setLogoHeight((200 / 600) * 100);
@@ -107,7 +107,7 @@ function DraggableMap({data}) {
           // // vertical={true}
           // // horizontal={true}
       >
-        <div className="inner-div relative">
+        <div className="inner-div relative ">
           <MyGallery
               style={{ width: `${width}px` }}
               width={width}
@@ -117,7 +117,7 @@ function DraggableMap({data}) {
               logoHeight={logoHeight}
               itemWidth={itemWidth}
               itemHeight={itemHeight}
-              verticalGap={5}
+              verticalGap={7}
               horizontalGap={2}
               Logo={0}
               randomness={0}

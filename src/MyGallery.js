@@ -104,27 +104,36 @@ export const MyGallery = ({
   // const minTop =0* Math.abs(50 - totalNoOfLayers * (itemHeight + verticalGap)) ;
 
   // IN BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD
+  const isBrowser = typeof window !== 'undefined';
+
+  // Access window directly in the component scope
+  const windowWidth = isBrowser ? window.innerWidth : 0;
+
+
+
   let minLeft = 0
   let minTop = 0
-  let windowWidth = 0
-  useEffect(()=> {
+  // let windowWidth = window?.innerWidth
 
-    windowWidth = window?.innerWidth
-
-    if (windowWidth > 1250) {
-      minLeft = -40
-      minTop = -30
-    } else if (windowWidth < 1250 && windowWidth > 850) {
-      minLeft = -35
-      minTop = -30
-    } else if (windowWidth < 850 && windowWidth > 410) {
-      minLeft = -25
-      minTop = -30
-    } else if (windowWidth < 410) {
-      minLeft = -15
-      minTop = -30
+  if (windowWidth > 1250) {
+    minLeft = -40
+    minTop = -30
+  } else if (windowWidth < 1250 && windowWidth > 850) {
+    minLeft = -35
+    minTop = -30
+  } else if (windowWidth < 850 && windowWidth > 410) {
+    minLeft = -25
+    minTop = -30
+  } else if (windowWidth < 410) {
+    minLeft = -15
+    minTop = -30
+  }
+  useEffect(() => {
+    // Your useEffect logic that uses window
+    if (isBrowser) {
+      console.log(windowWidth);
     }
-  })
+  }, [windowWidth])
 
   console.log('mins', minLeft, minTop)
   console.log('window', windowWidth)
@@ -214,16 +223,17 @@ export const MyGallery = ({
       >
         <ScrollContainer
             ref={scrollableDivRef}
-            mouseScroll={true}
+            // mouseScroll={true}
             // style={{ width, height }}
             style={{
               height: '100%',
               border: '2px solid #000',
-              padding: '2rem',
+              // padding: '2rem',
               // selectUser: 'none'
 
 
             }}
+            activationDistance={500}
             // overscroll={true}
             // rubberBand={false}
             // inertia={false}
@@ -233,20 +243,21 @@ export const MyGallery = ({
             // // vertical={true}
             // // horizontal={true}
         >
-          <div
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
-              style={{
-                //   backgroundColor: 'red',
-                width: logoWidth + '%',
-                height: logoHeight + '%',
-                top: (isDynamic ? centerTop : 50) + '%',
-                left: (isDynamic ? centerLeft : 50) + '%',
+          <div className="relative w-full h-full">
+            <div
+                className="absolute -translate-x-1/2 -translate-y-1/2 flex justify-center items-center"
+                style={{
+                  //   backgroundColor: 'red',
+                  width: logoWidth + '%',
+                  height: logoHeight + '%',
+                  top: (isDynamic ? centerTop : 50) + '%',
+                  left: (isDynamic ? centerLeft : 50) + '%',
 
-                transition: 'all 0.1s linear',
-              }}
+                  transition: 'all 0.1s linear',
+                }}
 
-          >
-            {/*<div className="relative w-[200px] ">*/}
+            >
+              {/*<div className="relative w-[200px] ">*/}
               <Image
                   ref={imgref}
                   // style={{height: 'auto'}}
@@ -256,73 +267,74 @@ export const MyGallery = ({
                   // height={200}
                   alt="logo"
               />
-            {/*</div>*/}
-          </div>
-          {items?.map((item, i) => {
-            const layerNo = getLayerNumber(i + 1);
-            const itemNoInLayer = getItemNoInLayer(i + 1, layerNo);
-            let [top, left] = getStaticAbsolutePosition(
-                layerNo,
-                itemNoInLayer,
-                logoHeight,
-                logoWidth,
-                itemHeight,
-                itemWidth,
-                verticalGap,
-                horizontalGap,
-            );
-            if (isDynamic)
-              [top, left] = getDynamicAbsolutePosition(
-                  top,
-                  left,
-                  (100 * coords.y) / height,
-                  (100 * coords.x) / width,
-                  maxTop,
-                  maxLeft,
-                  minLeft,
-                  minTop
+              {/*</div>*/}
+            </div>
+            {items?.map((item, i) => {
+              const layerNo = getLayerNumber(i + 1);
+              const itemNoInLayer = getItemNoInLayer(i + 1, layerNo);
+              let [top, left] = getStaticAbsolutePosition(
+                  layerNo,
+                  itemNoInLayer,
+                  logoHeight,
+                  logoWidth,
+                  itemHeight,
+                  itemWidth,
+                  verticalGap,
+                  horizontalGap,
               );
-            const randomX = randoms[i]?.length > 0 ? randoms[i][0] : 0;
-            const randomY = randoms[i]?.length > 0 ? randoms[i][1] : 0;
-            return (
-                <div
-                    key={i}
-                    className="project absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden hover:cursor-pointer"
-                    style={{
-                      // borderRadius: '10px',
-                      // backgroundColor: 'blue',
-                      width: itemWidth + '%',
-                      height: itemHeight + '%',
-                      top: top + randomX + '%',
-                      left: left + randomY + '%',
-                      color: 'white',
-                      transition: 'all 0.1s linear',
-                      fontSize: '14',
-                    }}
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <div className="myd"></div>
-                  <Link href={`projects/${item.Id}/${item.Title}`} style={{
-                    // background: ` linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
-                    // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`
-                  }} className="relative flex flex-col w-full h-full">
-                    <Image
-                        className="w-full h-[180px] z-[-1] object-fill"
-                        fill
-                        src={item.ThumbnailPicture?.slice(1, -1)}
-                        alt={item.Title}
-                    />
-                    <div className="myt text-2xl text-white flex justify-between px-2 w-full absolute top-[60%]">
-                      <p className="">{item.Title || 'title'}</p>
-                      <p className="">{item.ProjectDetail.OperationPlace || 'place'}</p>
-                    </div>
-                  </Link>
-                </div>
-            );
-          })}
+              if (isDynamic)
+                [top, left] = getDynamicAbsolutePosition(
+                    top,
+                    left,
+                    (100 * coords.y) / height,
+                    (100 * coords.x) / width,
+                    maxTop,
+                    maxLeft,
+                    minLeft,
+                    minTop
+                );
+              const randomX = randoms[i]?.length > 0 ? randoms[i][0] : 0;
+              const randomY = randoms[i]?.length > 0 ? randoms[i][1] : 0;
+              return (
+                  <div
+                      key={i}
+                      className="project absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden hover:cursor-pointer"
+                      style={{
+                        // borderRadius: '10px',
+                        // backgroundColor: 'blue',
+                        width: itemWidth + '%',
+                        height: itemHeight + '%',
+                        top: top + randomX + '%',
+                        left: left + randomY + '%',
+                        color: 'white',
+                        transition: 'all 0.1s linear',
+                        fontSize: '14',
+                      }}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div className="myd"></div>
+                    <Link href={`projects/${item.Id}/${item.Title}`} style={{
+                      // background: ` linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
+                      // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`
+                    }} className=" flex flex-col w-full h-full">
+                      <Image
+                          className="z-[-1] object-fill"
+                          fill
+                          src={item.ThumbnailPicture?.slice(1, -1)}
+                          alt={item.Title}
+                      />
+                      <div className="myt text-2xl text-white flex justify-between px-2 w-full absolute top-[60%]">
+                        <p className="">{item.Title || 'title'}</p>
+                        <p className="">{item.ProjectDetail.OperationPlace || 'place'}</p>
+                      </div>
+                    </Link>
+                  </div>
+              );
+            })}
+          </div>
         </ScrollContainer>
       </>
   );
