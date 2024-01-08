@@ -1,52 +1,52 @@
 import AboutUs from '@/components/Home/AboutUs/AboutUS';
-import Container360Img from "@/components/360image/container360Img";
+// import Container360Img from "@/components/360image/container360Img";
 import SampleProjects from '@/components/Home/SampleProjects/SampleProjects';
 import Customers from '@/components/Home/customers/Customers';
 import AboutAbility from '@/components/Home/AboutAbility/AboutAbility';
 import Blog from '@/components/Home/Blog/Blog';
-import axios from "axios";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import Scroll from "@/components/Home/Scroll/Scroll";
-import Floating from "@/components/Floating/Floating";
-
+import dynamic from "next/dynamic";
+//
 const getCustomers = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetEmployersLogo`)
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetEmployersLogo`,{cache: 'force-cache'})
     return JSON.parse(await response.json())
   }catch (e) {
     console.log(e)
   }
 
 }
-
+//
 const getSampleProject = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetSampleProjectImg`)
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetSampleProjectImg`,{cache: 'force-cache'})
     return JSON.parse(await response.json())
   }catch (e) {
     console.log(e)
   }
 }
-
+//
 const getBlogs = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Blog/GetAll`)
+    const response = await fetch(`${process.env.BASEURL}/api/Blog/GetAll`,{cache: 'force-cache'})
     return response.json()
   } catch (e) {
     console.log(e)
     return []
   }
 }
-
+//
 const get360 = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetHeader360`)
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetHeader360`,{cache: 'force-cache'})
     return await response.json()
   }catch (e) {
     console.log(e)
     return []
   }
 }
+const Container360Img = dynamic(() => import('../components/360image/container360Img'), { ssr: false })
 
 export default async function Home() {
   const sampleProjectImages = await getSampleProject()

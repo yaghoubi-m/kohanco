@@ -18,7 +18,7 @@ const fetchProject = async (id) => {
 export default async function Page({params}) {
 
   const data = await fetchProject(params.id[0])
-  console.log("data", data)
+  // console.log("data", data)
   return (
       <>
         <Details data={data}/>

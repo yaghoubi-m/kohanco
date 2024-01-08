@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import {useEffect, useRef, useState} from 'react';
 import ScrollContainer from "react-indiana-drag-scroll";
@@ -105,21 +106,25 @@ export const MyGallery = ({
   // IN BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD
   let minLeft = 0
   let minTop = 0
-  const windowWidth = window.innerWidth
+  let windowWidth = 0
+  useEffect(()=> {
 
-  if (windowWidth > 1250) {
-    minLeft = -40
-    minTop = -30
-  } else if (windowWidth < 1250 && windowWidth > 850) {
-    minLeft = -35
-    minTop = -30
-  } else if (windowWidth < 850 && windowWidth > 410) {
-    minLeft = -25
-    minTop = -30
-  } else if (windowWidth < 410) {
-    minLeft = -15
-    minTop = -30
-  }
+    windowWidth = window?.innerWidth
+
+    if (windowWidth > 1250) {
+      minLeft = -40
+      minTop = -30
+    } else if (windowWidth < 1250 && windowWidth > 850) {
+      minLeft = -35
+      minTop = -30
+    } else if (windowWidth < 850 && windowWidth > 410) {
+      minLeft = -25
+      minTop = -30
+    } else if (windowWidth < 410) {
+      minLeft = -15
+      minTop = -30
+    }
+  })
 
   console.log('mins', minLeft, minTop)
   console.log('window', windowWidth)

@@ -7,12 +7,12 @@ export function useWindowSize() {
   useLayoutEffect(() => {
     function updateSize() {
       // console.log(window.innerHeight)
-      setSize([window.innerWidth, window.innerHeight]);
+      setSize([window?.innerWidth, window?.innerHeight]);
       // console.log(size)
     }
-    window.addEventListener('resize', updateSize);
+    window?.addEventListener('resize', updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window?.removeEventListener('resize', updateSize);
   }, []);
   return size;
 }

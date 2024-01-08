@@ -9,16 +9,21 @@ import {
 } from 'react-photo-sphere-viewer';
 
 const baseUrl = 'https://photo-sphere-viewer-data.netlify.app/assets/';
-const ReactPhotoSphereViewer = dynamic(
-    () => import('react-photo-sphere-viewer').then((mod) => {
-      return mod.ReactPhotoSphereViewer
-    }),
-    {
-      // animate: '200rpm',
-      ssr: false,
-    },
-);
+
 const Image360Deg = ({img}) => {
+  if  (typeof window === 'undefined'){
+    return null
+  }
+  const ReactPhotoSphereViewer = dynamic(
+      () => import('react-photo-sphere-viewer').then((mod) => {
+        return mod.ReactPhotoSphereViewer
+      }),
+      {
+        // animate: '200rpm',
+        ssr: false,
+      },
+  );
+  useEffect(()=>{},[])
   // const photoSphereRef = React.createRef(<ReactPhotoSphereViewer />);
   // console.log('sss');
   // useEffect(() => {

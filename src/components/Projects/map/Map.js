@@ -38,7 +38,7 @@ function DraggableMap({data}) {
     // setconW(width);
     // console.log(height)
     // const itemWidth = ref.current.clientWidth;
-    const ww = window.innerWidth
+    const ww = window?.innerWidth
     if (ww >= 768){
       setItemWidth((400 / width) * 100);
       setItemHeight((170 / 600) * 100);
