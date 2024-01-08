@@ -89,7 +89,7 @@ export default function Header({title}) {
             className={styles.banner}
             style={{
                 background: ` linear-gradient(180deg, rgba(0,0,0,1) 20%, rgba(27,27,27,0.01) 100%),
-        url('${imgUrl}') 0 0 /cover no-repeat `,
+                url('${imgUrl}') 0 0 /cover no-repeat `,
                 // backgroundSize: 'cover',
             }}
         >
@@ -169,14 +169,15 @@ export default function Header({title}) {
                 </div>
                 <div className={styles.header_line__two}></div>
                 <p className={styles.banner_title}>{title}</p>
-                <Image
-                    className={styles.header_logo}
-                    width={100}
-                    height={100}
-                    src="/images/KohanLogo.png"
-                    alt="logo"
-                    // priority={false}
-                />
+               <div className={styles.header_logo}
+               >
+                   <Image
+                       layout='fill'
+                       src="/images/KohanLogo.png"
+                       alt="logo"
+                       // priority={false}
+                   />
+               </div>
             </header>
             <Link href="#a" className={styles.explore}>
                 <span>EXPLORE</span>

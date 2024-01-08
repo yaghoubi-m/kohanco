@@ -35,16 +35,16 @@ const Details = ({data}) => {
     <section className={styles.container}>
       <div className={styles.md}>
         <h1>{data.Title}</h1>
-        <div className={styles.rate2}>
-          <span>0 (0)</span>
-          <div className={styles.stars}>
-            <FaStar fill="#999" size="25" />
-            <FaStar fill="#999" size="25" />
-            <FaStar fill="#999" size="25" />
-            <FaStar fill="#999" size="25" />
-            <FaStar fill="#999" size="25" />
-          </div>
-        </div>
+        {/*<div className={styles.rate2}>*/}
+        {/*  <span>0 (0)</span>*/}
+        {/*  <div className={styles.stars}>*/}
+        {/*    <FaStar fill="#999" size="25" />*/}
+        {/*    <FaStar fill="#999" size="25" />*/}
+        {/*    <FaStar fill="#999" size="25" />*/}
+        {/*    <FaStar fill="#999" size="25" />*/}
+        {/*    <FaStar fill="#999" size="25" />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
       <div className={styles.pc}>
         <div className={styles.dc}>
