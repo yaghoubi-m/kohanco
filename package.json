@@ -23,7 +23,8 @@
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "react-responsive-carousel": "^3.2.23",
     "react-use-draggable-scroll": "^0.4.7",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.1",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

@@ -278,10 +278,10 @@ export const MyGallery = ({
             return (
                 <div
                     key={i}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden hover:cursor-pointer"
+                    className="project absolute -translate-x-1/2 -translate-y-1/2 overflow-hidden hover:cursor-pointer"
                     style={{
-                      borderRadius: '10px',
-                      backgroundColor: 'blue',
+                      // borderRadius: '10px',
+                      // backgroundColor: 'blue',
                       width: itemWidth + '%',
                       height: itemHeight + '%',
                       top: top + randomX + '%',
@@ -291,7 +291,12 @@ export const MyGallery = ({
                       fontSize: '14',
                     }}
                 >
-                  <Link href={`projects/${item.Id}`} style={{
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <div className="myd"></div>
+                  <Link href={`projects/${item.Id}/${item.Title}`} style={{
                     // background: ` linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
                     // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`
                   }} className="relative flex flex-col">
@@ -302,7 +307,7 @@ export const MyGallery = ({
                         src={item.ThumbnailPicture?.slice(1, -1)}
                         alt={item.Title}
                     />
-                    <div className="text-4xl flex justify-between px-2 w-full absolute top-[60%]">
+                    <div className="myt text-2xl text-white flex justify-between px-2 w-full absolute top-[60%]">
                       <p className="">{item.Title || 'title'}</p>
                       <p className="">{item.ProjectDetail.OperationPlace || 'place'}</p>
                     </div>

@@ -22,7 +22,11 @@ const Blog = ({blogs}) => {
       <p>آخرین مقالات و اخبار</p>
       <div className={styles.blog_container}>
           {blogs?.length > 0 && blogs.slice(0,3).reverse().map((blog,index)=>(
-              <Link key={index} href={`/blogs/${blog.Id}`} className={styles.img_container}>
+              <Link key={index} href={`/blogs/${blog.Id}/${blog.Title}`} className={styles.img_container}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                   <Image
                       className={styles.img}
                       width={200}
@@ -34,7 +38,7 @@ const Blog = ({blogs}) => {
               </Link>
           ))}
       </div>
-0      <div className={styles.slider}>
+      <div className={styles.slider}>
         <CarouselProvider
             className="ltr:ml-2"
           rientation="horizontal"
@@ -62,7 +66,12 @@ const Blog = ({blogs}) => {
         </CarouselProvider>
       </div>
         <Link href="/blogs">
-            <button className={styles.btn}>مشاهده همه</button>
+            <button className={styles.btn}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              مشاهده همه</button>
         </Link>
     </section>
   );

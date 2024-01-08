@@ -13,6 +13,9 @@
      margin: 0 auto;
 
 }
+.pcs {
+position: static !important;
+}
 .container{
     padding: 5rem;
     background-color: #fff;

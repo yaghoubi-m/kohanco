@@ -11,6 +11,8 @@ import {usePathname} from 'next/navigation';
 import axios from 'axios';
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
+
+
 export default function Header({title}) {
     const [menu, setMenu] = useState(false);
     const [imgUrl, setImgUrl] = useState('');
@@ -25,7 +27,7 @@ export default function Header({title}) {
             } catch (e) {
                 console.log(e);
             }
-        } else if (router === '/projects') {
+        } else if (router.includes('/projects')) {
             try {
                 const response = await axios.get(`${baseurl}/api/Project/projectMainHeaderImg`);
                 setImgUrl(response.data.slice(1, -1));

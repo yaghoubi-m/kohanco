@@ -15,9 +15,21 @@ import {
   DotGroup,
 } from 'pure-react-carousel';
 import NewsField from '../Home/newsfield/NewsField';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import {useState} from "react";
+import Tesst from "@/components/Tesst";
+import ReviewComment from "@/components/Projects/Review";
 // import Image from 'next/image';
 const images = ['/s1.png', '/s3.png', '/s1.png', '/s3.png', '/s1.png', '/s3.png'];
 const Details = ({data}) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+
   console.log(data)
   return (
     <section className={styles.container}>
@@ -60,61 +72,19 @@ const Details = ({data}) => {
             <span>با دیگران به اشتراک بگذارید</span>
             <IoShareSocialOutline />
           </div>
-          <div className={styles.rate}>
-            <span>0 (0)</span>
-            <div className={styles.stars}>
-              <FaStar fill="#999" size="25" />
-              <FaStar fill="#999" size="25" />
-              <FaStar fill="#999" size="25" />
-              <FaStar fill="#999" size="25" />
-              <FaStar fill="#999" size="25" />
-            </div>
-          </div>
+          {/*<div className={styles.rate}>*/}
+          {/*  <span>0 (0)</span>*/}
+          {/*  <div className={styles.stars}>*/}
+          {/*    <FaStar fill="#999" size="25" />*/}
+          {/*    <FaStar fill="#999" size="25" />*/}
+          {/*    <FaStar fill="#999" size="25" />*/}
+          {/*    <FaStar fill="#999" size="25" />*/}
+          {/*    <FaStar fill="#999" size="25" />*/}
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
         <div className={styles.carousel_con}>
-          <CarouselProvider
-            // orientation=""
-            infinite
-            naturalSlideWidth={1.5}
-            naturalSlideHeight={1}
-            totalSlides={images.length}
-          >
-            <Slider
-            //    className={styles.slider}
-            >
-              {images.map((img, index) => (
-                <Slide key={index}>
-                  <Image
-                    key={index}
-                    src={img}
-                    alt={`${index}`}
-                    width={650}
-                    height={650}
-                    // priority={index === 0}
-                  />
-                </Slide>
-              ))}
-            </Slider>
-            <div className={styles.all_dots}>
-              <ButtonNext className={styles.btn}>{'<'}</ButtonNext>
-              <div className={styles.dot_container}>
-                {images.map((img, index) => (
-                  <Dot slide={index} key={index}>
-                    <Image
-                      // key={index}
-                      src={img}
-                      alt={`${index}`}
-                      width={650}
-                      height={650}
-                      // priority={index === 0}
-                    />
-                  </Dot>
-                ))}
-              </div>
-              <ButtonBack className={styles.btn}>{'>'}</ButtonBack>
-            </div>
-            <DotGroup className={styles.dotscon} />
-          </CarouselProvider>
+          <Tesst data={JSON.parse(data.ProjectDetail.PicturesBaseUrl)} />
         </div>
       </div>
     </section>
