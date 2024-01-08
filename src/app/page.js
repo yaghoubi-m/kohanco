@@ -10,7 +10,8 @@ import dynamic from "next/dynamic";
 //
 const getCustomers = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetEmployersLogo`,{cache: 'force-cache'})
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetEmployersLogo`,{cache: 'force-cache' ,
+      next: { revalidate: 3600 }})
     return JSON.parse(await response.json())
   }catch (e) {
     console.log(e)
@@ -20,7 +21,7 @@ const getCustomers = async () => {
 //
 const getSampleProject = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetSampleProjectImg`,{cache: 'force-cache'})
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetSampleProjectImg`,{cache: 'force-cache',next: { revalidate: 3600 }})
     return JSON.parse(await response.json())
   }catch (e) {
     console.log(e)
@@ -29,7 +30,7 @@ const getSampleProject = async () => {
 //
 const getBlogs = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Blog/GetAll`,{cache: 'force-cache'})
+    const response = await fetch(`${process.env.BASEURL}/api/Blog/GetAll`,{cache: 'force-cache',next: { revalidate: 3600 }})
     return response.json()
   } catch (e) {
     console.log(e)
@@ -39,7 +40,7 @@ const getBlogs = async () => {
 //
 const get360 = async () => {
   try {
-    const response = await fetch(`${process.env.BASEURL}/api/Home/GetHeader360`,{cache: 'force-cache'})
+    const response = await fetch(`${process.env.BASEURL}/api/Home/GetHeader360`,{cache: 'force-cache',next: { revalidate: 3600 }})
     return await response.json()
   }catch (e) {
     console.log(e)
