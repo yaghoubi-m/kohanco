@@ -6,7 +6,10 @@ import ReviewComment from "@/components/Projects/Review";
 const fetchProject = async (id) => {
   try {
     console.log('id', id)
-    const res = await fetch(`${process.env.BASEURL}/api/Project/ProjectDetail?id=${id}`, {cache: 'force-cache'})
+    const res = await fetch(`${process.env.BASEURL}/api/Project/ProjectDetail?id=${id}`, {
+      cache: 'force-cache',
+      next: {revalidate: 3600}
+    })
     return await res.json()
   } catch (e) {
     console.log("eee", e)
