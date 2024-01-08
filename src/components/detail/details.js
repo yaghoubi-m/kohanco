@@ -84,7 +84,7 @@ const Details = ({data}) => {
           {/*</div>*/}
         </div>
         <div className={styles.carousel_con}>
-          {/*<Tesst title={data?.Title} data={JSON.parse(data.ProjectDetail.PicturesBaseUrl)} />*/}
+          <Tesst title={data?.Title} data={JSON.parse(data.ProjectDetail.PicturesBaseUrl)} />
         </div>
       </div>
     </section>
