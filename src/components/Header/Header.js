@@ -124,7 +124,7 @@ export default function Header({title}) {
                             </li>
                             <li>
                                 <Link href="/projects" style={{
-                                    borderBottom: `${router === '/projects' ? '2px solid #FFF' : ''}`
+                                    borderBottom: `${router.includes( '/projects') ? '2px solid #FFF' : ''}`
                                 }} className={styles.link}>
                                     Projects
                                 </Link>

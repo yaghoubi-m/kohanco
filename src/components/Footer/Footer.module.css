@@ -36,6 +36,7 @@
 }
 
 .logo{
+    position: relative;
     width: 23rem;
     height: 32.6rem;
 

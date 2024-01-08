@@ -4,17 +4,17 @@ import styles from './ImgForm.module.css';
 const ImgForm = () => {
   return (
     <section className={styles.container}>
-      <Image
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '70vh',
-        }}
-        src={'/images/blurimg.jpeg'}
-        width={500}
-        height={400}
-        alt="backdrop"
-      />
+      <div style={{
+        position: 'absolute',
+        width: '100%',
+        height: '70vh',
+      }}>
+        <Image
+            fill
+            src={'/images/blurimg.jpeg'}
+            alt="backdrop"
+        />
+      </div>
       <Comments s="" />
     </section>
   );

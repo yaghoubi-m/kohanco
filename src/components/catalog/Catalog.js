@@ -4,28 +4,43 @@ import styles from './Catalog.module.css';
 import Pdf from './pdf/Pdf';
 import Video from './video/Video';
 import {useState} from "react";
+
 const Catalog = () => {
-  const [isPdf, setIsPdf] = useState(false)
+  const [isPdf, setIsPdf] = useState(true)
+  const [isV, setIsV] = useState(false)
+
   const onPdf = () => {
-    setIsPdf(p=> !p)
+    setIsV(false)
+    setIsPdf(true)
+  }
+  const onVideo = () => {
+    setIsPdf(false)
+    setIsV(true)
   }
   return (
-    <section className={styles.container}>
-      <h1>کاتالوگ</h1>
-      <div className={styles.pc}>
-        <div onClick={onPdf} className={styles.catalog_con}>
-          <Image src={'/images/video.svg'} width={90} height={90} alt="video icon" />
-          <span>ویدئو کاتالوگ</span>
+      <section className={styles.container}>
+        <h1>کاتالوگ</h1>
+        <div className={styles.pc}>
+          <div className="flex cursor-pointer flex-col justify-center items-center gap-5 text-[1.6rem] rounded-[1rem] bg-[#e4e4e4] p-2"
+               onClick={onVideo}>
+            <div className={styles.catalog_con}>
+              <Image src={'/images/video.svg'} fill alt="video icon"/>
+            </div>
+            <span>ویدئو کاتالوگ</span>
+          </div>
+          <div onClick={onPdf}
+               className="flex cursor-pointer flex-col justify-center items-center gap-5 text-[1.6rem] rounded-[1rem] bg-[#e4e4e4] p-2">
+            <div className={styles.catalog_con}>
+              <Image src={'/images/pdf.svg'} fill alt="pdf icon"/>
+            </div>
+            <span>کاتالوگ PDF</span>
+          </div>
         </div>
-        <div onClick={onPdf} className={styles.catalog_con}>
-          <Image src={'/images/pdf.svg'} width={90} height={90} alt="pdf icon" />
-          <span>کاتالوگ PDF</span>
-        </div>
-      </div>
-      {
-        isPdf ?  <Video /> : <Pdf />
-      }
-    </section>
+        {
+            isPdf && <Pdf/>
+        }
+        {isV && <Video/>}
+      </section>
   );
 };
 

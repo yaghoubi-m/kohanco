@@ -241,18 +241,22 @@ export const MyGallery = ({
                 height: logoHeight + '%',
                 top: (isDynamic ? centerTop : 50) + '%',
                 left: (isDynamic ? centerLeft : 50) + '%',
+
                 transition: 'all 0.1s linear',
               }}
 
           >
-            <Image
-                ref={imgref}
-                style={{height: 'auto'}}
-                src={'/images/KohanLogo.png'}
-                width={200}
-                height={300}
-                alt="logo"
-            />
+            {/*<div className="relative w-[200px] ">*/}
+              <Image
+                  ref={imgref}
+                  // style={{height: 'auto'}}
+                  src={'/images/KohanLogo.png'}
+                  fill
+                  // width={200}
+                  // height={200}
+                  alt="logo"
+              />
+            {/*</div>*/}
           </div>
           {items?.map((item, i) => {
             const layerNo = getLayerNumber(i + 1);
@@ -304,11 +308,10 @@ export const MyGallery = ({
                   <Link href={`projects/${item.Id}/${item.Title}`} style={{
                     // background: ` linear-gradient(180deg, rgba(0, 0, 0, 0) 46.59%, rgba(0, 0, 0, 0.9) 100%),
                     // linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))`
-                  }} className="relative flex flex-col">
+                  }} className="relative flex flex-col w-full h-full">
                     <Image
                         className="w-full h-[180px] z-[-1] object-fill"
-                        width={200}
-                        height={200}
+                        fill
                         src={item.ThumbnailPicture?.slice(1, -1)}
                         alt={item.Title}
                     />

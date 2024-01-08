@@ -4,7 +4,9 @@ import styles from './WhyUs.module.css';
 const WhyUs = () => {
   return (
     <section className={styles.container}>
-      <Image src={'/images/about1.png'} width={1469} height={689} alt='pic1' />
+      <div className={styles.img}>
+        <Image src={'/images/about1.png'} fill alt='pic1' />
+      </div>
       <div className={styles.whyus}>
         <div>
           <p>چرا شرکت ما؟</p>
@@ -39,7 +41,9 @@ const WhyUs = () => {
             بوده ایم،{' '}
           </p>
         </div>
-        <Image  src={'/images/about2.jpeg'} width={714} height={539} alt='pc2' />
+        <div className={styles.img2}>
+          <Image  src={'/images/about2.jpeg'} fill alt='pc2' />
+        </div>
       </div>
       <div className={styles.whyus}>
         <p>طعم طراحی مدرن<br/> در غرفه سازی نمایشگاه‌ها</p>

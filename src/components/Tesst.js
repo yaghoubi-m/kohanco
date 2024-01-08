@@ -18,7 +18,7 @@ import Image from "next/image";
 
 export default function App({data,title}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  console.log(data)
   return (
       <>
         <Swiper
@@ -34,7 +34,9 @@ export default function App({data,title}) {
         >
           {data.map((img, index) => (
               <SwiperSlide key={index}>
-                <Image width={200} height={100} src={img} alt={title}/>
+                <div className="w-full h-[400px] relative">
+                  <Image fill src={img} alt={title}/>
+                </div>
               </SwiperSlide>
           ))}
         </Swiper>
@@ -45,11 +47,13 @@ export default function App({data,title}) {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper"
+            className="mySwiper mt-4"
         >
           {data.map((img, index) => (
               <SwiperSlide key={index}>
-                <Image width={200} height={100} src={img} alt={title}/>
+                <div className="w-full h-[80px] relative pt-4">
+                  <Image fill src={img} alt={title}/>
+                </div>
               </SwiperSlide>
           ))}
         </Swiper>

@@ -31,13 +31,16 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.md}>
-          <Image
-            className={styles.logo}
-            height={200}
-            width={200}
-            src={'/images/KohanLogo.png'}
-            alt="logo"
-          />
+          <div className={styles.logo}>
+            <Image
+
+                // height={200}
+                // width={200}
+                fill
+                src={'/images/KohanLogo.png'}
+                alt="logo"
+            />
+          </div>
           <div className={styles.contact}>
             {/* <p>تماس باما</p> */}
             <div>
@@ -54,13 +57,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <Image
-          className={styles.logo}
-          height={200}
-          width={200}
-          src={'/images/KohanLogo.png'}
-          alt="logo"
-        />
+        <div className={styles.logo}>
+          <Image
+
+              // height={200}
+              // width={200}
+              fill
+              src={'/images/KohanLogo.png'}
+              alt="logo"
+          />
+        </div>
         <div className={styles.contact}>
           <p>تماس باما</p>
           <div>
@@ -82,12 +88,12 @@ const Footer = () => {
           شرکت کهن ارائه دهنده خدمات بازسازی و طراحی و ساخت غرفه سازی نمایشگاهی و اداری.
         </p>
         <div className={styles.icons_container}>
-          <BiLogoFacebookCircle className={styles.icon} />
-          <AiFillTwitterCircle className={styles.icon} />
-          <BiLogoInstagram className={styles.icon} />
-          <AiFillLinkedin className={styles.icon} />
-          <BsPinterest className={styles.icon} />
-          <BsTelegram className={styles.icon} />
+          <Link href={'https://www.instagram.com/kohan-company'}>
+            <BiLogoInstagram className={styles.icon} />
+          </Link>
+          {/*<AiFillLinkedin className={styles.icon} />*/}
+          {/*<BsPinterest className={styles.icon} />*/}
+          {/*<BsTelegram className={styles.icon} />*/}
         </div>
       </div>
       <div className={styles.line}></div>

@@ -18,19 +18,20 @@ const Page = async () => {
   return (
       <>
         <div className="mt-10 flex gap-4 justify-center flex-wrap">
-          {data?.length > 0 && data.slice(0,3).reverse().map((blog,index)=>(
+          {data?.length > 0 && data.slice(0, 3).reverse().map((blog, index) => (
               <Link key={index} href={`/blogs/${blog.Id}/${blog.Title}`} className={`${styles.img_container2}`}>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <Image
-                    className={styles.img}
-                    width={200}
-                    height={200}
-                    src={blog.ThumbPicture?.slice(1,-1)}
-                    alt="blog image"
-                />
+                <div className={styles.img}>
+                  <Image
+                      fill
+                      src={blog.ThumbPicture?.slice(1, -1)}
+                      alt="blog image"
+                  />
+
+                </div>
                 <p>{blog.Title}</p>
               </Link>
           ))}

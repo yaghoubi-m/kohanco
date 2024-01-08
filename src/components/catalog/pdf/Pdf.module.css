@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@
     /* margin-bottom: 10rem; */
 }
 
-.pdf{
+.pdf {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,3 +18,8 @@
     gap: 1rem;
 }
 
+.img {
+    position: relative;
+    width: 54px;
+    height: 65px;
+}

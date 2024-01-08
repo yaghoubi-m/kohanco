@@ -1,30 +1,43 @@
-.container{
+.container {
     width: 98%;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
 }
 
-.containers{
+.containers {
     aspect-ratio: 3/2;
     height: auto;
     position: relative;
     width: 33.33%;
 }
 
+.cimg {
+    /*position: relative;*/
+    width: 100%;
+    height: 360px;
+}
 
-.container div img{
+.container div img {
     position: absolute;
     width: 100%;
     height: auto;
 }
-.mask{
+
+.img {
+    position: relative;
+    width: 457px;
+    height: 331px;
+}
+
+.mask {
     background-color: #00000066;
     position: absolute;
     width: 100%;
     height: 100%;
 }
-.details{
+
+.details {
     position: absolute;
     margin: 1rem 5%;
     width: 90%;
@@ -35,41 +48,48 @@
     font-size: 1.5rem;
 }
 
-.details p{
+.details p {
     padding: 1.5rem 0;
 }
 
-.details p:first-child{
+.details p:first-child {
     border-bottom: 1px solid;
 }
-.md{
+
+.md {
     display: block;
 }
-.carousel{
+
+.carousel {
     display: none;
 }
+
 @media screen and (max-width: 768px) {
-    .container{
+    .container {
         display: none;
-    }    
-    .carousel{
+    }
+
+    .carousel {
         display: block;
         width: 80%;
         margin: 0 auto;
     }
-    .containers{
+
+    .containers {
         width: 100%;
         height: 100%;
     }
-    .carousel div img{
+
+    .carousel div img {
         position: absolute;
         width: 100%;
         height: 100%;
     }
-    .dotscon{
-    
+
+    .dotscon {
+
         display: block;
-    
+
         margin: 0 auto;
         margin-top: 2rem;
         width: 100%;
@@ -78,8 +98,8 @@
         align-items: center;
         gap: 2rem
     }
-    
-    .dotscon button{
+
+    .dotscon button {
         background-color: #d6d6d6;
         border-radius: 50%;
         width: 20px;
@@ -87,16 +107,16 @@
         outline: none;
         border: none;
     }
-    
-    .dotscon button:disabled{
+
+    .dotscon button:disabled {
         background: #000;
         border: 1px solid #000;
     }
-    
+
 }
 
 @media screen and (max-width: 1024px) {
-    .details{
+    .details {
         font-size: 1.2rem;
     }
 }

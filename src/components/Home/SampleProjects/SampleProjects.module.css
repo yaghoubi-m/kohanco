@@ -100,4 +100,7 @@
         width: 60%;
         font-size: 1rem;
     }
+    .slider{
+        width: 100%;
+    }
 }

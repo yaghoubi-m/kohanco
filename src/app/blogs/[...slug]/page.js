@@ -23,7 +23,9 @@ export default async function Page({params}) {
   return (
       <>
         <div className="relative w-full h-[80vh]">
-          <Image className="w-full h-full object-cover" src={img} width={500} height={300} alt={blog.Title} />
+          <div  className="w-full h-full object-cover relative">
+            <Image src={img} fill alt={blog.Title} />
+          </div>
           <div className="absolute flex justify-center items-center top-[70%] rounded-tl-[20px] h-[170px] bg-white w-[30%]">
             <h1 className="text-7xl text-center  uppercase">{blog.Title}</h1>
           </div>

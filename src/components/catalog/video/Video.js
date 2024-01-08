@@ -1,17 +1,25 @@
+'use state';
+
 import Image from 'next/image';
 import styles from './Video.module.css';
+import {useState} from "react";
 
-const arr = [1, 2, 4, 435, 465, 6557, 3, 234, 14, 6, 57, 35, 23414, 35435];
+const arr = [1, 2, 4];
 const Video = () => {
+  const [url, setUrl] = useState("/images/video.mp4")
+  const onUrl = () => {
+    setUrl('/images/F.mp4')
+    console.log(url)
+  }
   return (
     <section className={styles.container}>
-      <video controls>
-        <source src="/images/video.mp4"></source>
+      <video src={url} controls>
+        {/*<source ></source>*/}
       </video>
       <div className={styles.vid_con}>
         {arr.map((i) => (
-          <div key={i}>
-            <Image src={'/images/play.svg'} width={60} height={60} alt="img" />
+          <div className={styles.img} key={i} onClick={onUrl}>
+             <Image src={'/images/banner.jpg'} fill />
           </div>
         ))}
       </div>

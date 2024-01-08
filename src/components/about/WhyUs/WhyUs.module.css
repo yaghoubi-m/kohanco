@@ -5,9 +5,10 @@
     align-items: center;
 }
 
-.container > img{
+.img{
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 689px;
 }
 
 .whyus{
@@ -58,11 +59,12 @@
     font-size: 2.5rem;
     color: #FFF;
     margin-bottom: 2rem;
-} 
+}
 
-.above img{
+.img2{
+    position: relative;
     width: 50%;
-    height: auto;
+    height: 540px;
 }
 
 .whyus:last-child{
@@ -123,7 +125,7 @@
     .above{
         flex-direction: column-reverse;
     }
-    .above img{
+    .img2{
         width: 100%;
     }
     .above >div p:first-child{

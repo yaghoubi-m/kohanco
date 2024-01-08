@@ -26,7 +26,9 @@ const Employ = () => {
             {arr.map((i) => (
               <Slide key={i}>
                 <div className={styles.containers}>
-                  <Img src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
+                  <div className={styles.cimg}>
+                    <Img src={'/images/person.jpeg'} fill alt="preson" />
+                  </div>
                   <div className={styles.mask}></div>
                   <div className={styles.details}>
                     <p>آقای حمید نوریانی</p>
@@ -41,28 +43,37 @@ const Employ = () => {
       </div>
       <section className={styles.container}>
         <div className={styles.containers}>
-          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
-          <div className={styles.mask}></div>
-          <div className={styles.details}>
-            <p>آقای حمید نوریانی</p>
-            <p>مدیر امور نمایشگاه‌ها</p>
+          <div className={styles.img}>
+            <Image src={'/images/person.jpeg'} fill alt="preson" />
+            <div className={styles.mask}></div>
+            <div className={styles.details}>
+              <p>آقای حمید نوریانی</p>
+              <p>مدیر امور نمایشگاه‌ها</p>
+          </div>
+
           </div>
         </div>
         <div className={styles.containers}>
-          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
-          <div className={styles.mask}></div>
-          <div className={styles.details}>
-            <p>آقای حمید نوریانی</p>
-            <p>مدیر امور نمایشگاه‌ها</p>
+          <div className={styles.img}>
+            <Image src={'/images/person.jpeg'} fill alt="preson" />
+            <div className={styles.mask}></div>
+            <div className={styles.details}>
+              <p>آقای حمید نوریانی</p>
+              <p>مدیر امور نمایشگاه‌ها</p>
+          </div>
+
           </div>
         </div>
         <div className={styles.containers}>
-          <Image src={'/images/person.jpeg'} width={457} height={331} alt="preson" />
-          <div className={styles.mask}></div>
-          <div className={styles.details}>
-            <p>آقای حمید نوریانی</p>
-            <p>مدیر امور نمایشگاه‌ها</p>
+          <div className={styles.img}>
+            <Image src={'/images/person.jpeg'} fill alt="preson" />
+            <div className={styles.mask}></div>
+            <div className={styles.details}>
+              <p>آقای حمید نوریانی</p>
+              <p>مدیر امور نمایشگاه‌ها</p>
+            </div>
           </div>
+
         </div>
       </section>
     </>
