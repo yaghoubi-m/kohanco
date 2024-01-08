@@ -7,8 +7,11 @@ const Customers = async ({images}) => {
       <h3>مشتریان ما</h3>
       <p>غرفه سازی برای شرکت‌های مختلف</p>
       <div className={styles.logo_container}>
+
         {images.map((img, index) => (
-          <Image key={index} width={200} height={200} src={img} alt="2" />
+            <div key={index} className={styles.img}>
+              <Image  fill src={img} alt="2" />
+            </div>
         ))}
       </div>
     </section>
